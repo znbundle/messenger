@@ -1,0 +1,19 @@
+{% extends '@Messenger/base.html.twig' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block body %}
+
+    {{ breadcrumbAdd('Message', '/chat') }}
+
+    {% include '@Messenger/chat/index.list.html.twig' %}
+
+    <span class="pull-right">
+        <a class="btn btn-success" href="{{ path('web_messenger_chat_create') }}">Create</a>
+    </span>
+
+    <span>
+        {{ pagination(dataProviderEntity, app.request) }} &nbsp;
+    </span>
+
+{% endblock %}

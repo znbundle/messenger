@@ -1,0 +1,36 @@
+{% extends '@Messenger/base.html.twig' %}
+
+{% block title %}{{ chat.title }}{% endblock %}
+
+{% block body %}
+
+    {{ breadcrumbAdd('Message', '/chat') }}
+    {{ breadcrumbAdd(chat.title, '/chat/view/' ~ chat.id) }}
+
+    <div class="float-right">
+        <a class="btn btn-primary" href="{{ path('web_messenger_chat_update', {id: chat.id}) }}">update</a>
+        <a class="btn btn-danger" href="#deleteModal" data-toggle="modal">delete</a>
+    </div>
+
+    <h3>
+        {{ chat.title }}
+    </h3>
+
+    <div>
+        {% for message in chat.messages %}
+            <div class="" role="alert">
+                <img src="{{ message.message.author.logo }}&s=16"/>
+                <b>{{ message.message.author.username }}</b>: {{ message.message.text }}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% set footer %}
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form id="delete_form" method="post" action="{{ path('web_messenger_chat_delete', {id: chat.id}) }}"></form>
+        <button class="btn btn-danger" onclick="$('#delete_form').submit()">Delete</button>
+    {% endset %}
+
+    {{ modal('deleteModal', 'Delete item', 'A you sure delete item?', footer) }}
+
+{% endblock %}

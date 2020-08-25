@@ -1,0 +1,76 @@
+{% extends '@Messenger/base.html.twig' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block body %}
+
+    {{ breadcrumbAdd('Messenger', '/messenger') }}
+
+    <div class="messaging">
+        <div class="inbox_msg">
+            <div class="inbox_people">
+                <div class="headind_srch">
+                    <div class="recent_heading">
+                        <h4>Recent</h4>
+                    </div>
+                    <div class="srch_bar">
+                        <div class="stylish-input-group">
+                            <input type="text" class="search-bar" placeholder="Search">
+                            <span class="input-group-addon">
+                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                </span></div>
+                    </div>
+                </div>
+                <div class="inbox_chat">
+
+                    <div id="chatList"></div>
+
+                    <script type="text/template" id="chatItem">
+                        <div class="chat_list <% if (is_active) { %>active_chat<% } %>">
+                            <div class="chat_people">
+                                <div class="chat_img">
+                                    <img src="<%= logo %>" alt="<%= title %>" class="img-size-64 img-circle">
+                                </div>
+                                <div class="chat_ib">
+                                    <h5><%= title %> <span class="chat_date text-muted">Dec 25</span></h5>
+                                    <p>Test, which is a new approach to have all solutions
+                                        astrology under one roof.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+
+                </div>
+            </div>
+            <div class="mesgs">
+                <div id="messageList" class="msg_history">
+
+                </div>
+                <div class="type_msg">
+                    <div class="input_msg_write">
+                        <form method="post" class="form-inline" id="messageForm">
+                            <input name="text" id="messageInput" type="text" class="write_msg" placeholder="Type a message"/>
+                            <button type="submit" class="msg_send_btn">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        require(["Controllers/chatController"], function (chatController) {
+
+            var controller = new chatController(); // Создаём контроллер
+            Backbone.history.start();
+
+        });
+    </script>
+
+    {#{{ script('/bundles/messenger/message.js') }}#}
+    {{ style('/bundles/messenger/messenger.css') }}
+
+{% endblock %}
