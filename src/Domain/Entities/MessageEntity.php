@@ -2,7 +2,7 @@
 
 namespace PhpBundle\Messenger\Domain\Entities;
 
-use Packages\User\Domain\Entities\IdentityEntity;
+use PhpBundle\User\Domain\Entities\IdentityEntity;
 use PhpBundle\User\Domain\Entities\Identity;
 use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

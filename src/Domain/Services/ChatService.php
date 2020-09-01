@@ -2,7 +2,7 @@
 
 namespace PhpBundle\Messenger\Domain\Services;
 
-use Packages\User\Domain\Services\AuthService;
+use PhpBundle\User\Domain\Services\AuthService;
 use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
 use PhpLab\Core\Domain\Libs\Query;
 use PhpLab\Core\Domain\Helpers\EntityHelper;

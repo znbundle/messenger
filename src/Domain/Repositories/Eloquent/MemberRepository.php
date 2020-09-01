@@ -3,7 +3,7 @@
 namespace PhpBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use Packages\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
+use PhpBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use PhpLab\Core\Domain\Libs\Query;
 use PhpLab\Core\Domain\Enums\RelationEnum;
 use PhpLab\Core\Domain\Libs\Relation\OneToOne;

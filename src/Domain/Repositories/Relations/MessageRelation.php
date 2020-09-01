@@ -3,7 +3,7 @@
 namespace PhpBundle\Messenger\Domain\Repositories\Relations;
 
 use Illuminate\Support\Collection;
-use Packages\User\Domain\Repositories\Eloquent\IdentityRepository;
+use PhpBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
 use PhpBundle\Article\Domain\Interfaces\CategoryRepositoryInterface;
 use PhpBundle\Article\Domain\Interfaces\TagPostRepositoryInterface;
 use PhpBundle\Article\Domain\Interfaces\TagRepositoryInterface;

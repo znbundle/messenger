@@ -4,7 +4,7 @@ namespace PhpBundle\Messenger\Domain\Services;
 
 use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
-use Packages\User\Domain\Services\AuthService;
+use PhpBundle\User\Domain\Services\AuthService;
 use PhpBundle\User\Domain\Exceptions\UnauthorizedException;
 use PhpBundle\User\Domain\Interfaces\UserRepositoryInterface;
 use PhpLab\Core\Domain\Base\BaseCrudService;
