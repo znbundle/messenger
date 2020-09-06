@@ -9,7 +9,7 @@ use PhpBundle\Article\Domain\Interfaces\TagPostRepositoryInterface;
 use PhpBundle\Article\Domain\Interfaces\TagRepositoryInterface;
 use PhpBundle\Messenger\Domain\Repositories\Eloquent\ChatRepository;
 use PhpBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
-use PhpBundle\User\Domain\Interfaces\UserRepositoryInterface;
+use PhpBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
 use PhpBundle\User\Domain\Repositories\Eloquent\UserRepository;
 use PhpLab\Core\Domain\Enums\RelationEnum;
 use PhpLab\Core\Domain\Interfaces\Repository\RelationConfigInterface;

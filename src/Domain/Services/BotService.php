@@ -6,7 +6,7 @@ use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
 use PhpBundle\User\Domain\Services\AuthService;
 use PhpBundle\User\Domain\Exceptions\UnauthorizedException;
-use PhpBundle\User\Domain\Interfaces\UserRepositoryInterface;
+use PhpBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
 use PhpLab\Core\Domain\Base\BaseCrudService;
 use PhpLab\Core\Domain\Exceptions\UnprocessibleEntityException;
 use PhpLab\Core\Domain\Libs\Query;
