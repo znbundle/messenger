@@ -15,7 +15,9 @@
 	"autoload": {
 		"psr-4": {
 			"PhpBundle\\Messenger\\": "src",
-			"PhpBundle\\Messenger\\Tests\\": "tests"
+			"PhpBundle\\Messenger\\Tests\\": "tests",
+			"ZnBundle\\Messenger\\": "src",
+			"ZnBundle\\Messenger\\Tests\\": "tests"
 		}
 	}
 }
