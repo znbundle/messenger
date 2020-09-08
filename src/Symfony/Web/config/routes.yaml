@@ -1,31 +1,31 @@
 #web_messenger_chat_index:
 #    methods: [GET]
 #    path: chat
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\ChatController::index
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\ChatController::index
 #
 #web_messenger_chat_create:
 #    path: chat/create
 #    methods: [GET,POST]
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\ChatController::create
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\ChatController::create
 #
 #web_messenger_chat_view:
 #    methods: [GET]
 #    path: chat/view/{id}
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\ChatController::view
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\ChatController::view
 #    requirements:
 #        id: '\d+'
 #
 #web_messenger_chat_update:
 #    methods: [GET,POST]
 #    path: chat/update/{id}
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\ChatController::update
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\ChatController::update
 #    requirements:
 #        id: '\d+'
 #
 #web_messenger_chat_delete:
 #    methods: [POST]
 #    path: chat/delete/{id}
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\ChatController::delete
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\ChatController::delete
 #    requirements:
 #        id: '\d+'
 
@@ -34,40 +34,40 @@
 web_messenger_chat_index:
     methods: [GET]
     path: messenger
-    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::index
+    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::index
 
 web_messenger_chat_list:
     methods: [GET]
     path: chat-list
-    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::chatList
+    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::chatList
 
 web_messenger_message_message-list:
     methods: [GET]
     path: message-list/{chatId}
-    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::messageList
+    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::messageList
 
 web_messenger_message_create:
     path: messenger/{chatId}
     methods: [POST]
-    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::create
+    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::create
 #
 #web_messenger_message_view:
 #    methods: [GET]
 #    path: message/view/{id}
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::view
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::view
 #    requirements:
 #        id: '\d+'
 #
 #web_messenger_message_update:
 #    methods: [GET,POST]
 #    path: message/update/{id}
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::update
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::update
 #    requirements:
 #        id: '\d+'
 #
 #web_messenger_message_delete:
 #    methods: [POST]
 #    path: message/delete/{id}
-#    controller: PhpLab\Sandbox\Messenger\Symfony\Web\Controllers\MessageController::delete
+#    controller: ZnBundle\Messenger\Symfony\Web\Controllers\MessageController::delete
 #    requirements:
 #        id: '\d+'

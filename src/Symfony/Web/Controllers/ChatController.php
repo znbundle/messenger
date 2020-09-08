@@ -1,16 +1,16 @@
 <?php
 
-namespace PhpBundle\Messenger\Symfony\Web\Controllers;
+namespace ZnBundle\Messenger\Symfony\Web\Controllers;
 
-use PhpLab\Core\Domain\Helpers\EntityHelper;
-use PhpLab\Core\Domain\Helpers\QueryHelper;
-use PhpLab\Core\Domain\Libs\DataProvider;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Rest\Web\Controller\BaseCrudWebController;
-use PhpBundle\Messenger\Domain\Entities\ChatEntity;
-use PhpBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
-use PhpBundle\Notify\Domain\Interfaces\Services\FlashServiceInterface;
-use PhpLab\Web\Traits\AccessTrait;
+use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Domain\Helpers\QueryHelper;
+use ZnCore\Base\Domain\Libs\DataProvider;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnLib\Rest\Web\Controller\BaseCrudWebController;
+use ZnBundle\Messenger\Domain\Entities\ChatEntity;
+use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
+use ZnBundle\Notify\Domain\Interfaces\Services\FlashServiceInterface;
+use ZnSandbox\Web\Traits\AccessTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpBundle\Messenger\Symfony;
+namespace ZnBundle\Messenger\Symfony;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

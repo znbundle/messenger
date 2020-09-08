@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Entities;
+namespace ZnBundle\Messenger\Domain\Entities;
 
 use Illuminate\Support\Collection;
-use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
 use Symfony\Component\Security\Core\Security;
 
 class BotEntity implements EntityIdInterface

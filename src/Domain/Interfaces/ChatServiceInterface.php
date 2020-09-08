@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Interfaces;
+namespace ZnBundle\Messenger\Domain\Interfaces;
 
-use PhpLab\Core\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
 
 interface ChatServiceInterface extends CrudServiceInterface
 {

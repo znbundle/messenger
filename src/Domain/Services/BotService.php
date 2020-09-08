@@ -1,25 +1,25 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Services;
+namespace ZnBundle\Messenger\Domain\Services;
 
 use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
-use PhpBundle\User\Domain\Services\AuthService;
-use PhpBundle\User\Domain\Exceptions\UnauthorizedException;
-use PhpBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
-use PhpLab\Core\Domain\Base\BaseCrudService;
-use PhpLab\Core\Domain\Exceptions\UnprocessibleEntityException;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Rest\Contract\Client\RestClient;
-use PhpBundle\Messenger\Domain\Entities\BotEntity;
-use PhpBundle\Messenger\Domain\Entities\ChatEntity;
-use PhpBundle\Messenger\Domain\Entities\FlowEntity;
-use PhpBundle\Messenger\Domain\Entities\MessageEntity;
-use PhpBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Repositories\BotRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Services\BotServiceInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
+use ZnBundle\User\Domain\Services\AuthService;
+use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
+use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
+use ZnCore\Base\Domain\Base\BaseCrudService;
+use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnLib\Rest\Contract\Client\RestClient;
+use ZnBundle\Messenger\Domain\Entities\BotEntity;
+use ZnBundle\Messenger\Domain\Entities\ChatEntity;
+use ZnBundle\Messenger\Domain\Entities\FlowEntity;
+use ZnBundle\Messenger\Domain\Entities\MessageEntity;
+use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Repositories\BotRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Services\BotServiceInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Security;

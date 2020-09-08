@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Interfaces\Services;
+namespace ZnBundle\Messenger\Domain\Interfaces\Services;
 
-use PhpLab\Core\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
 
 interface MessageServiceInterface extends CrudServiceInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Interfaces\Services;
+namespace ZnBundle\Messenger\Domain\Interfaces\Services;
 
-use PhpLab\Core\Domain\Interfaces\Service\CrudServiceInterface;
-use PhpBundle\Messenger\Domain\Entities\BotEntity;
+use ZnCore\Base\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnBundle\Messenger\Domain\Entities\BotEntity;
 
 interface BotServiceInterface extends CrudServiceInterface
 {

@@ -1,18 +1,18 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Repositories\Eloquent;
+namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use PhpLab\Core\Domain\Enums\RelationEnum;
-use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Core\Domain\Libs\Relation\OneToMany;
-use PhpLab\Eloquent\Db\Helpers\Manager;
-use PhpLab\Eloquent\Db\Base\BaseEloquentCrudRepository;
-use PhpBundle\Messenger\Domain\Entities\ChatEntity;
-use PhpBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
+use ZnCore\Base\Domain\Enums\RelationEnum;
+use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Base\Domain\Libs\Relation\OneToMany;
+use ZnCore\Db\Db\Helpers\Manager;
+use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
+use ZnBundle\Messenger\Domain\Entities\ChatEntity;
+use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use Symfony\Component\Security\Core\Security;
 
 class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface

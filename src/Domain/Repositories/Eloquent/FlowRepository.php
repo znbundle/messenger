@@ -1,16 +1,16 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Repositories\Eloquent;
+namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Core\Domain\Enums\RelationEnum;
-use PhpLab\Core\Domain\Libs\Relation\OneToOne;
-use PhpLab\Eloquent\Db\Helpers\Manager;
-use PhpLab\Eloquent\Db\Base\BaseEloquentCrudRepository;
-use PhpBundle\Messenger\Domain\Entities\FlowEntity;
-use PhpBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Base\Domain\Enums\RelationEnum;
+use ZnCore\Base\Domain\Libs\Relation\OneToOne;
+use ZnCore\Db\Db\Helpers\Manager;
+use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
+use ZnBundle\Messenger\Domain\Entities\FlowEntity;
+use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 
 class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositoryInterface
 {

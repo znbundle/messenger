@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Interfaces\Repositories;
+namespace ZnBundle\Messenger\Domain\Interfaces\Repositories;
 
-use PhpLab\Core\Domain\Interfaces\Repository\CrudRepositoryInterface;
-use PhpBundle\Messenger\Domain\Entities\BotEntity;
+use ZnCore\Base\Domain\Interfaces\Repository\CrudRepositoryInterface;
+use ZnBundle\Messenger\Domain\Entities\BotEntity;
 
 interface BotRepositoryInterface extends CrudRepositoryInterface
 {

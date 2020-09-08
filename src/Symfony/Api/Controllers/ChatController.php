@@ -1,16 +1,16 @@
 <?php
 
-namespace PhpBundle\Messenger\Symfony\Api\Controllers;
+namespace ZnBundle\Messenger\Symfony\Api\Controllers;
 
-use PhpBundle\User\Domain\Entities\User;
-use PhpBundle\User\Domain\Symfony\Authenticator;
-use PhpBundle\User\Domain\Traits\AccessTrait;
-use PhpLab\Core\Domain\Helpers\EntityHelper;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Core\Enums\Http\HttpHeaderEnum;
-use PhpLab\Rest\Base\BaseCrudApiController;
-use PhpLab\Rest\Libs\SymfonyAuthenticator;
-use PhpBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
+use ZnBundle\User\Domain\Entities\User;
+use ZnBundle\User\Domain\Symfony\Authenticator;
+use ZnBundle\User\Domain\Traits\AccessTrait;
+use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnLib\Rest\Base\BaseCrudApiController;
+use ZnLib\Rest\Libs\SymfonyAuthenticator;
+use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;

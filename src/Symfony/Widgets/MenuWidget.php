@@ -1,11 +1,11 @@
 <?php
 
-namespace PhpBundle\Messenger\Symfony\Widgets;
+namespace ZnBundle\Messenger\Symfony\Widgets;
 
-use PhpLab\Core\Domain\Libs\Query;
-use PhpBundle\Messenger\Domain\Entities\MessageEntity;
-use PhpBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
-use PhpLab\Web\Base\BaseWidget;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnBundle\Messenger\Domain\Entities\MessageEntity;
+use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
+use ZnSandbox\Web\Base\BaseWidget;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 

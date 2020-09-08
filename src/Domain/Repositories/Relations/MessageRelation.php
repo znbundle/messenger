@@ -1,23 +1,23 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Repositories\Relations;
+namespace ZnBundle\Messenger\Domain\Repositories\Relations;
 
 use Illuminate\Support\Collection;
-use PhpBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
-use PhpBundle\Article\Domain\Interfaces\CategoryRepositoryInterface;
-use PhpBundle\Article\Domain\Interfaces\TagPostRepositoryInterface;
-use PhpBundle\Article\Domain\Interfaces\TagRepositoryInterface;
-use PhpBundle\Messenger\Domain\Repositories\Eloquent\ChatRepository;
-use PhpBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
-use PhpBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
-use PhpBundle\User\Domain\Repositories\Eloquent\UserRepository;
-use PhpLab\Core\Domain\Enums\RelationEnum;
-use PhpLab\Core\Domain\Interfaces\Repository\RelationConfigInterface;
-use PhpLab\Core\Domain\Libs\Relation\ManyToMany;
-use PhpLab\Core\Domain\Libs\Relation\OneToOne;
-use PhpBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
+use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
+use ZnBundle\Article\Domain\Interfaces\CategoryRepositoryInterface;
+use ZnBundle\Article\Domain\Interfaces\TagPostRepositoryInterface;
+use ZnBundle\Article\Domain\Interfaces\TagRepositoryInterface;
+use ZnBundle\Messenger\Domain\Repositories\Eloquent\ChatRepository;
+use ZnBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
+use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
+use ZnBundle\User\Domain\Repositories\Eloquent\UserRepository;
+use ZnCore\Base\Domain\Enums\RelationEnum;
+use ZnCore\Base\Domain\Interfaces\Repository\RelationConfigInterface;
+use ZnCore\Base\Domain\Libs\Relation\ManyToMany;
+use ZnCore\Base\Domain\Libs\Relation\OneToOne;
+use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use Psr\Container\ContainerInterface;
-use PhpLab\Eloquent\Db\Helpers\Manager;
+use ZnCore\Db\Db\Helpers\Manager;
 
 class MessageRelation implements RelationConfigInterface
 {

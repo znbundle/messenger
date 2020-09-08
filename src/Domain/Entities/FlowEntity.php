@@ -1,8 +1,8 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Entities;
+namespace ZnBundle\Messenger\Domain\Entities;
 
-use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
 
 class FlowEntity implements EntityIdInterface
 {

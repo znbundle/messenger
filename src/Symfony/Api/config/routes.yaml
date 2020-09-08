@@ -1,43 +1,43 @@
 api_messenger_chat_index:
     methods: [GET]
     path: messenger-chat
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::index
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::index
 
 api_messenger_chat_create:
     methods: [POST]
     path: messenger-chat
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::create
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::create
 
 api_messenger_chat_view:
     methods: [GET]
     path: messenger-chat/{id}
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::view
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::view
     requirements:
         id: '\d+'
 
 api_messenger_chat_update:
     methods: [PUT]
     path: messenger-chat/{id}
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::update
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::update
     requirements:
         id: '\d+'
 
 api_messenger_chat_delete:
     methods: [DELETE]
     path: messenger-chat/{id}
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::delete
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::delete
     requirements:
         id: '\d+'
 
 api_messenger_chat_index_options:
     methods: [OPTIONS]
     path: messenger-chat
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::options
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::options
 
 api_messenger_chat_options:
     methods: [OPTIONS]
     path: messenger-chat/{id}
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\ChatController::options
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\ChatController::options
     requirements:
         id: '\d+'
 
@@ -46,11 +46,11 @@ api_messenger_chat_options:
 api_messenger_message_list:
     methods: [GET]
     path: messenger-messages/{chatId}
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\MessageController::allByChatId
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\MessageController::allByChatId
     requirements:
         chatId: '\d+'
 
 api_messenger_message_send_message:
     methods: [GET]
     path: bot/{bot}/send-message
-    controller: PhpLab\Sandbox\Messenger\Symfony\Api\Controllers\MessageController::sendMessageFromBot
+    controller: ZnBundle\Messenger\Symfony\Api\Controllers\MessageController::sendMessageFromBot

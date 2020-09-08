@@ -1,18 +1,18 @@
 <?php
 
-namespace PhpBundle\Messenger\Symfony\Api\Controllers;
+namespace ZnBundle\Messenger\Symfony\Api\Controllers;
 
-use PhpBundle\User\Domain\Symfony\Authenticator;
-use PhpBundle\User\Domain\Traits\AccessTrait;
-use PhpLab\Core\Domain\Entities\Query\Where;
-use PhpLab\Core\Domain\Exceptions\UnprocessibleEntityException;
-use PhpLab\Core\Domain\Helpers\EntityHelper;
-use PhpLab\Core\Domain\Helpers\QueryHelper;
-use PhpLab\Core\Domain\Libs\DataProvider;
-use PhpLab\Rest\Base\BaseCrudApiController;
-use PhpLab\Rest\Libs\Serializer\JsonRestSerializer;
-use PhpBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
+use ZnBundle\User\Domain\Symfony\Authenticator;
+use ZnBundle\User\Domain\Traits\AccessTrait;
+use ZnCore\Base\Domain\Entities\Query\Where;
+use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Domain\Helpers\QueryHelper;
+use ZnCore\Base\Domain\Libs\DataProvider;
+use ZnLib\Rest\Base\BaseCrudApiController;
+use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
+use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

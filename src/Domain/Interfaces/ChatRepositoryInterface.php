@@ -1,10 +1,10 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Interfaces;
+namespace ZnBundle\Messenger\Domain\Interfaces;
 
-use PhpLab\Core\Domain\Interfaces\Repository\CrudRepositoryInterface;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpBundle\Messenger\Domain\Entities\ChatEntity;
+use ZnCore\Base\Domain\Interfaces\Repository\CrudRepositoryInterface;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 
 interface ChatRepositoryInterface extends CrudRepositoryInterface
 {

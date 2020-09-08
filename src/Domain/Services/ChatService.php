@@ -1,19 +1,19 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Services;
+namespace ZnBundle\Messenger\Domain\Services;
 
-use PhpBundle\User\Domain\Services\AuthService;
-use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
-use PhpLab\Core\Domain\Libs\Query;
-use PhpLab\Core\Domain\Helpers\EntityHelper;
-use PhpLab\Core\Domain\Interfaces\GetEntityClassInterface;
-use PhpLab\Core\Domain\Base\BaseCrudService;
-use PhpBundle\Messenger\Domain\Entities\ChatEntity;
-use PhpBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
-use PhpBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
-use PhpBundle\User\Domain\Entities\User;
-use PhpBundle\User\Domain\Traits\UserAwareTrait;
+use ZnBundle\User\Domain\Services\AuthService;
+use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Base\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Domain\Interfaces\GetEntityClassInterface;
+use ZnCore\Base\Domain\Base\BaseCrudService;
+use ZnBundle\Messenger\Domain\Entities\ChatEntity;
+use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
+use ZnBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
+use ZnBundle\User\Domain\Entities\User;
+use ZnBundle\User\Domain\Traits\UserAwareTrait;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**

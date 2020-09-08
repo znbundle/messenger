@@ -1,9 +1,9 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Entities;
+namespace ZnBundle\Messenger\Domain\Entities;
 
-use PhpBundle\User\Domain\Entities\Identity;
-use PhpLab\Core\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnBundle\User\Domain\Entities\Identity;
+use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class MemberEntity implements EntityIdInterface

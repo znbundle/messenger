@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Libs;
+namespace ZnBundle\Messenger\Domain\Libs;
 
 use IntlChar;
 use Phpml\Classification\Classifier;

@@ -1,18 +1,18 @@
 <?php
 
-namespace PhpBundle\Messenger\Domain\Repositories\Eloquent;
+namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use PhpLab\Core\Domain\Enums\RelationEnum;
-use PhpLab\Core\Domain\Libs\Relation\ManyToMany;
-use PhpLab\Core\Domain\Libs\Relation\OneToMany;
-use PhpLab\Core\Domain\Libs\Relation\OneToOne;
-use PhpLab\Eloquent\Db\Base\BaseEloquentCrudRepository;
-use PhpLab\Eloquent\Db\Helpers\Manager;
-use PhpBundle\Messenger\Domain\Entities\MessageEntity;
-use PhpBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
-use PhpBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
-use PhpBundle\Messenger\Domain\Repositories\Relations\MessageRelation;
+use ZnCore\Base\Domain\Enums\RelationEnum;
+use ZnCore\Base\Domain\Libs\Relation\ManyToMany;
+use ZnCore\Base\Domain\Libs\Relation\OneToMany;
+use ZnCore\Base\Domain\Libs\Relation\OneToOne;
+use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
+use ZnCore\Db\Db\Helpers\Manager;
+use ZnBundle\Messenger\Domain\Entities\MessageEntity;
+use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
+use ZnBundle\Messenger\Domain\Repositories\Relations\MessageRelation;
 
 class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
 {
