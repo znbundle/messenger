@@ -2,10 +2,10 @@
 
 namespace ZnBundle\Messenger\Symfony\Web\Controllers;
 
-use ZnCore\Base\Domain\Helpers\EntityHelper;
-use ZnCore\Base\Domain\Helpers\QueryHelper;
-use ZnCore\Base\Domain\Libs\DataProvider;
-use ZnCore\Base\Domain\Libs\Query;
+use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Domain\Helpers\QueryHelper;
+use ZnCore\Domain\Libs\DataProvider;
+use ZnCore\Domain\Libs\Query;
 use ZnLib\Rest\Web\Controller\BaseCrudWebController;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;

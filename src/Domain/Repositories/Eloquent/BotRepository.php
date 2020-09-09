@@ -3,9 +3,9 @@
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Domain\Enums\RelationEnum;
-use ZnCore\Base\Domain\Libs\Query;
-use ZnCore\Base\Domain\Libs\Relation\OneToMany;
+use ZnCore\Domain\Enums\RelationEnum;
+use ZnCore\Domain\Libs\Query;
+use ZnCore\Domain\Libs\Relation\OneToMany;
 use ZnCore\Db\Db\Helpers\Manager;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\BotEntity;

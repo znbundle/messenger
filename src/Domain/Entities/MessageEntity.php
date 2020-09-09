@@ -4,7 +4,7 @@ namespace ZnBundle\Messenger\Domain\Entities;
 
 use ZnBundle\User\Domain\Entities\IdentityEntity;
 use ZnBundle\User\Domain\Entities\Identity;
-use ZnCore\Base\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class MessageEntity implements EntityIdInterface

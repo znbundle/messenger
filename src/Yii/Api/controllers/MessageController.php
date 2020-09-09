@@ -4,11 +4,11 @@ namespace ZnBundle\Messenger\Yii\Api\controllers;
 
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;
-use ZnCore\Base\Domain\Entities\Query\Where;
-use ZnCore\Base\Domain\Exceptions\UnprocessibleEntityException;
-use ZnCore\Base\Domain\Helpers\EntityHelper;
-use ZnCore\Base\Domain\Helpers\QueryHelper;
-use ZnCore\Base\Domain\Libs\DataProvider;
+use ZnCore\Domain\Entities\Query\Where;
+use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Domain\Helpers\QueryHelper;
+use ZnCore\Domain\Libs\DataProvider;
 use ZnLib\Rest\Base\BaseCrudApiController;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
