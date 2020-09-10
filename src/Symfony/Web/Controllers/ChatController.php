@@ -10,7 +10,7 @@ use ZnLib\Rest\Web\Controller\BaseCrudWebController;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\FlashServiceInterface;
-use ZnSandbox\Web\Traits\AccessTrait;
+use ZnSandbox\Sandbox\Web\Symfony4\Traits\AccessTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
