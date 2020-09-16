@@ -12,7 +12,7 @@ use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\FlashServiceInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
-use ZnSandbox\Sandbox\Web\Symfony4\Traits\AccessTrait;
+use ZnLib\Web\Symfony4\WebBundle\Traits\AccessTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
