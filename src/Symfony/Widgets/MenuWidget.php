@@ -5,7 +5,7 @@ namespace ZnBundle\Messenger\Symfony\Widgets;
 use ZnCore\Domain\Libs\Query;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
-use ZnSandbox\Sandbox\Html\Widgets\Base\BaseWidget;
+use ZnLib\Web\Widgets\Base\BaseWidget;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
