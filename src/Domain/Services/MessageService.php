@@ -19,9 +19,9 @@ use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\BotRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
-use ZnSandbox\Sandbox\Socket\Domain\Entities\SocketEventEntity;
-use ZnSandbox\Sandbox\Socket\Domain\Enums\SocketEventEnum;
-use ZnSandbox\Sandbox\Socket\Domain\Libs\SocketDaemon;
+use ZnLib\Socket\Domain\Entities\SocketEventEntity;
+use ZnLib\Socket\Domain\Enums\SocketEventEnum;
+use ZnLib\Socket\Domain\Libs\SocketDaemon;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
