@@ -5,7 +5,7 @@ namespace Migrations;
 use Illuminate\Database\Schema\Blueprint;
 use ZnCore\Db\Migration\Base\BaseCreateTableMigration;
 
-class m_2014_10_14_100000_create_messenger_chat_table extends BaseCreateTableMigration
+class m_2020_06_14_100000_create_messenger_chat_table extends BaseCreateTableMigration
 {
 
     protected $tableName = 'messenger_chat';
