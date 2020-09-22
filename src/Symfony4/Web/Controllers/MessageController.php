@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnBundle\Messenger\Symfony\Web\Controllers;
+namespace ZnBundle\Messenger\Symfony4\Web\Controllers;
 
 use ZnCore\Domain\Entities\Query\Where;
 use ZnCore\Domain\Helpers\EntityHelper;

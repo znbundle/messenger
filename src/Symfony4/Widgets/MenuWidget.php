@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnBundle\Messenger\Symfony\Widgets;
+namespace ZnBundle\Messenger\Symfony4\Widgets;
 
 use ZnCore\Domain\Libs\Query;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;

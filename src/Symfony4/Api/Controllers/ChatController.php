@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnBundle\Messenger\Symfony\Api\Controllers;
+namespace ZnBundle\Messenger\Symfony4\Api\Controllers;
 
 use ZnBundle\User\Domain\Entities\User;
 use ZnBundle\User\Domain\Symfony\Authenticator;

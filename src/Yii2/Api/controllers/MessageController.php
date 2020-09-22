@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnBundle\Messenger\Yii\Api\controllers;
+namespace ZnBundle\Messenger\Yii2\Api\controllers;
 
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;

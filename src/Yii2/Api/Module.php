@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnBundle\Messenger\Yii\Api;
+namespace ZnBundle\Messenger\Yii2\Api;
 
 use yii\base\Module as YiiModule;
 use yii\filters\AccessControl;
