@@ -9,7 +9,7 @@ use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Helpers\QueryHelper;
 use ZnCore\Domain\Libs\DataProvider;
-use ZnLib\Rest\Base\BaseCrudApiController;
+use ZnLib\Rest\Symfony4\Base\BaseCrudApiController;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
