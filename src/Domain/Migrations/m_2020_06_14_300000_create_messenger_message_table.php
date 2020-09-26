@@ -23,7 +23,7 @@ class m_2020_06_14_300000_create_messenger_message_table extends BaseCreateTable
             $table
                 ->foreign('author_id')
                 ->references('id')
-                ->on($this->encodeTableName('fos_user'))
+                ->on($this->encodeTableName('user_identity'))
                 ->onDelete(ForeignActionEnum::CASCADE)
                 ->onUpdate(ForeignActionEnum::CASCADE);
             $table

@@ -22,7 +22,7 @@ class m_2020_06_14_400000_create_messenger_bot_table extends BaseCreateTableMigr
             $table
                 ->foreign('user_id')
                 ->references('id')
-                ->on($this->encodeTableName('fos_user'))
+                ->on($this->encodeTableName('user_identity'))
                 ->onDelete(ForeignActionEnum::CASCADE)
                 ->onUpdate(ForeignActionEnum::CASCADE);
         };
