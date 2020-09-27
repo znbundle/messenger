@@ -6,7 +6,7 @@ use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 use ZnBundle\Messenger\Domain\Repositories\Relations\MessageRelation;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
-use ZnCore\Db\Db\Helpers\Manager;
+use ZnCore\Db\Db\Capsule\Manager;
 
 class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
 {

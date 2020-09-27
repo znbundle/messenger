@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Libs\Relation\OneToOne;
-use ZnCore\Db\Db\Helpers\Manager;
+use ZnCore\Db\Db\Capsule\Manager;
 use ZnCore\Db\Db\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\FlowEntity;
 use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;

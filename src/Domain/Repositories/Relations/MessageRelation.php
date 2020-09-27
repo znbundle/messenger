@@ -17,7 +17,7 @@ use ZnCore\Domain\Libs\Relation\ManyToMany;
 use ZnCore\Domain\Libs\Relation\OneToOne;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use Psr\Container\ContainerInterface;
-use ZnCore\Db\Db\Helpers\Manager;
+use ZnCore\Db\Db\Capsule\Manager;
 
 class MessageRelation implements RelationConfigInterface
 {
