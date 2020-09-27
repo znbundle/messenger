@@ -1,10 +1,10 @@
 <?php
 
-use ZnCore\Db\Fixture\Helpers\FixtureFactoryHelper;
+use ZnCore\Db\Fixture\Libs\FixtureGenerator;
 
-$fixture = new FixtureFactoryHelper;
+$fixture = new FixtureGenerator;
 $fixture->setCount(30);
-$fixture->setCallback(function ($index, FixtureFactoryHelper $fixtureFactory) {
+$fixture->setCallback(function ($index, FixtureGenerator $fixtureFactory) {
     return [
         'id' => $index,
         'user_id' => $fixtureFactory->ordIndex($index, 10),
