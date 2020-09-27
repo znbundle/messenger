@@ -3,8 +3,8 @@
 namespace Migrations;
 
 use Illuminate\Database\Schema\Blueprint;
-use ZnCore\Db\Migration\Base\BaseCreateTableMigration;
-use ZnCore\Db\Migration\Enums\ForeignActionEnum;
+use ZnLib\Migration\Domain\Base\BaseCreateTableMigration;
+use ZnLib\Migration\Domain\Enums\ForeignActionEnum;
 
 class m_2020_06_14_400000_create_messenger_flow_table extends BaseCreateTableMigration
 {
