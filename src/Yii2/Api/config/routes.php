@@ -1,7 +1,7 @@
 <?php
 
 use yii\rest\UrlRule;
-$version = API_VERSION_STRING;
+//$version = API_VERSION_STRING;
 
 return [
 
