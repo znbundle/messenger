@@ -29,7 +29,7 @@ class m_2020_06_14_300000_create_messenger_message_table extends BaseCreateTable
             $table
                 ->foreign('chat_id')
                 ->references('id')
-                ->on($this->encodeTableName('messenger_member'))
+                ->on($this->encodeTableName('messenger_chat'))
                 ->onDelete(ForeignActionEnum::CASCADE)
                 ->onUpdate(ForeignActionEnum::CASCADE);
         };
