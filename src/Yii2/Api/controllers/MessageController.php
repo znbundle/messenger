@@ -4,6 +4,7 @@ namespace ZnBundle\Messenger\Yii2\Api\controllers;
 
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;
+use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
 use ZnCore\Domain\Entities\Query\Where;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -81,6 +82,15 @@ class MessageController extends BaseCrudController
             'chatEntity' => $chatEntity,
             'chatCollection' => $chatCollection,
         ]);*/
+    }
+
+    public function actionSendMessage(int $chatId) {
+        try {
+            $this->service->sendMessage($chatId, \Yii::$app->request->post('text'));
+        } catch (UnprocessibleEntityException $e) {
+
+        }
+        \Yii::$app->response->setStatusCode(HttpStatusCodeEnum::CREATED);
     }
 
     public function sendMessageFromBot(Request $request, string $bot) {

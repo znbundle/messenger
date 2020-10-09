@@ -4,9 +4,12 @@ namespace ZnBundle\Messenger\Domain\Services;
 
 use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
+use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
+use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
 use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
+use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Libs\Query;
@@ -33,37 +36,45 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     private $flowRepository;
     private $botRepository;
     private $userRepository;
+    private $chatRepository;
     private $botService;
     private $socketDaemon;
+    private $identityRepository;
+
+    /** @var AuthService */
+    private $auth;
 
     public function __construct(
-        MessageRepositoryInterface $repository
+        MessageRepositoryInterface $repository,
+        AuthService2 $authService,
+        ChatRepositoryInterface $chatRepository,
+        IdentityRepositoryInterface $identityRepository,
+        SocketDaemon $socketDaemon,
+        FlowRepositoryInterface $flowRepository
         //BotService $botService
     )
     {
         $this->repository = $repository;
+        $this->auth = $authService;
+        $this->chatRepository = $chatRepository;
+        $this->identityRepository = $identityRepository;
+        $this->socketDaemon = $socketDaemon;
+        $this->flowRepository = $flowRepository;
     }
 
-    public function ____construct(
+    /*public function ____construct(
 
-        UserRepositoryInterface $userRepository,
         BotRepositoryInterface $botRepository,
-        FlowRepositoryInterface $flowRepository,
-        ChatService $chatService,
-        //Security $security,
-        AuthService $authService,
-        SocketDaemon $socketDaemon)
+        ChatService $chatService
+        //Security $security)
+(
     {
 
         $this->botRepository = $botRepository;
-        $this->flowRepository = $flowRepository;
-        $this->userRepository = $userRepository;
         $this->chatService = $chatService;
         //$this->security = $security;
-        $this->auth = $authService;
         $this->botService = $botService;
-        $this->socketDaemon = $socketDaemon;
-    }
+    }*/
 
     public function createEntity(array $attributes = []): MessageEntity
     {
@@ -76,6 +87,20 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     protected function forgeQuery(Query $query = null)
     {
         return parent::forgeQuery($query)->with('author');
+    }
+
+    public function sendMessage(int $chatId, string $text)
+    {
+        $identity = $this->auth->getIdentity();
+        $chatEntity = $this->chatRepository->oneByIdWithMembers($chatId);
+        $messageEntity = $this->createEntity();
+        $messageEntity->setChatId($chatId);
+        $messageEntity->setAuthorId($identity->getId());
+        $messageEntity->setChat($chatEntity);
+        $messageEntity->setText($text);
+        $this->repository->create($messageEntity);
+        $this->sendFlow($messageEntity);
+        return $messageEntity;
     }
 
     public function sendMessageFromBot($botToken, array $request)
@@ -93,22 +118,10 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         return $messageEntity;
     }
 
-    public function sendMessage(int $chatId, string $text)
-    {
-        $chatEntity = $this->chatService->repository->oneByIdWithMembers($chatId);
-        $messageEntity = $this->createEntity();
-        $messageEntity->setChatId($chatId);
-        $messageEntity->setChat($chatEntity);
-        $messageEntity->setText($text);
-        $this->repository->create($messageEntity);
-        $this->sendFlow($messageEntity);
-        return $messageEntity;
-    }
-
     private function sendFlow(MessageEntity $messageEntity)
     {
         $chatEntity = $messageEntity->getChat();
-        $author = $this->userRepository->oneById($messageEntity->getAuthorId());
+        $author = $this->identityRepository->oneById($messageEntity->getAuthorId());
         $messageEntity->setAuthor($author);
 
         foreach ($chatEntity->getMembers() as $memberEntity) {
@@ -124,7 +137,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
             ]);
             $this->socketDaemon->sendMessageToTcp($event);
 
-            $roles = $memberEntity->getUser()->getRolesArray();
+            $roles = $memberEntity->getUser()->getRoles();
             if (in_array('ROLE_BOT', $roles)) {
                 if($messageEntity->getAuthorId() != $memberEntity->getUserId()) {
                     $this->sendMessageToBot($memberEntity->getUser(), $messageEntity);
