@@ -16,8 +16,8 @@ class m_2020_06_14_200000_create_messenger_member_table extends BaseCreateTableM
     {
         return function (Blueprint $table) {
             $table->integer('id')->autoIncrement()->comment('Идентификатор');
-            $table->integer('user_id')->comment('');
-            $table->integer('chat_id')->comment('');
+            $table->integer('user_id')->comment('ID пользователя');
+            $table->integer('chat_id')->comment('ID чата');
             $table
                 ->foreign('user_id')
                 ->references('id')
