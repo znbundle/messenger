@@ -39,17 +39,6 @@ class MessageController extends BaseCrudController
         parent::__construct($id, $module, $config);
         $this->service = $messageService;
     }
-
-    public function _______construct(
-
-        Authenticator $authenticator
-    )
-    {
-        $this->service = $messageService;
-        $this->authenticator = $authenticator;
-        $this->chatService = $chatService;
-        //$this->checkAuth();
-    }
     
     public function actionAllByChatId(Request $request, int $chatId = null) {
         return [];
