@@ -64,10 +64,10 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
         return $query;
     }
 
-    public function create($data): EntityIdInterface
+    public function create($attributes): EntityIdInterface
     {
         // todo: create by self user id
-        return parent::create($data);
+        return parent::create($attributes);
     }
 
     public function updateById($id, $data)
