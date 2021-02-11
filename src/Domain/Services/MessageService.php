@@ -54,7 +54,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         //BotService $botService
     )
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
         $this->auth = $authService;
         $this->chatRepository = $chatRepository;
         $this->identityRepository = $identityRepository;
@@ -98,7 +98,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         $messageEntity->setAuthorId($identity->getId());
         $messageEntity->setChat($chatEntity);
         $messageEntity->setText($text);
-        $this->repository->create($messageEntity);
+        $this->getRepository()->create($messageEntity);
         $this->sendFlow($messageEntity);
         return $messageEntity;
     }
@@ -113,7 +113,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         $messageEntity->setChatId($chatEntity->getId());
         $messageEntity->setChat($chatEntity);
         $messageEntity->setText($request['text']);
-        $this->repository->create($messageEntity);
+        $this->getRepository()->create($messageEntity);
         $this->sendFlow($messageEntity);
         return $messageEntity;
     }

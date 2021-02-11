@@ -30,7 +30,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
 
     public function __construct(AuthService2 $authService, ChatRepositoryInterface $repository, MemberRepository $memberRepository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
         $this->authService = $authService;
         $this->memberRepository = $memberRepository;
     }
