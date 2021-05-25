@@ -2,8 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Entities;
 
-use ZnBundle\User\Domain\Entities\IdentityEntity;
-use ZnBundle\User\Domain\Entities\Identity;
+use ZnBundle\User\Domain\Interfaces\Entities\IdentityEntityInterface;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -81,7 +80,7 @@ class MessageEntity implements EntityIdInterface
         $this->chatId = $chatId;
     }
 
-    public function getAuthor(): ?IdentityEntity
+    public function getAuthor(): ?IdentityEntityInterface
     {
         return $this->author;
     }
@@ -89,7 +88,7 @@ class MessageEntity implements EntityIdInterface
     /**
      * @param mixed $author
      */
-    public function setAuthor(IdentityEntity $author): void
+    public function setAuthor(IdentityEntityInterface $author): void
     {
         $this->author = $author;
     }
