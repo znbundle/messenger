@@ -3,21 +3,12 @@
 namespace ZnBundle\Messenger\Domain\Repositories\Relations;
 
 use Illuminate\Support\Collection;
-use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
-use ZnBundle\Article\Domain\Interfaces\CategoryRepositoryInterface;
-use ZnBundle\Article\Domain\Interfaces\TagPostRepositoryInterface;
-use ZnBundle\Article\Domain\Interfaces\TagRepositoryInterface;
+use Psr\Container\ContainerInterface;
 use ZnBundle\Messenger\Domain\Repositories\Eloquent\ChatRepository;
-use ZnBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
-use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
-use ZnBundle\User\Domain\Repositories\Eloquent\UserRepository;
+use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
-use ZnCore\Domain\Libs\Relation\ManyToMany;
 use ZnCore\Domain\Libs\Relation\OneToOne;
-use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
-use Psr\Container\ContainerInterface;
-use ZnLib\Db\Capsule\Manager;
 
 class MessageRelation implements RelationConfigInterface
 {
@@ -29,7 +20,8 @@ class MessageRelation implements RelationConfigInterface
         $this->container = $container;
     }
 
-    public function primaryKey() {
+    public function primaryKey()
+    {
         return ['id'];
     }
 
