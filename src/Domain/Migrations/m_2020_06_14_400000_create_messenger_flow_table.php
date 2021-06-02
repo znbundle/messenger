@@ -20,7 +20,12 @@ class m_2020_06_14_400000_create_messenger_flow_table extends BaseCreateTableMig
             $table->integer('chat_id')->comment('ID чата');
             $table->integer('user_id')->comment('ID владельца');
             $table->boolean('is_seen')->comment('Прочтено');
-            $table
+
+            $this->addForeign($table, 'message_id', 'messenger_message');
+            $this->addForeign($table, 'chat_id', 'messenger_chat');
+            $this->addForeign($table, 'user_id', 'user_identity');
+
+            /*$table
                 ->foreign('message_id')
                 ->references('id')
                 ->on($this->encodeTableName('messenger_message'))
@@ -37,7 +42,7 @@ class m_2020_06_14_400000_create_messenger_flow_table extends BaseCreateTableMig
                 ->references('id')
                 ->on($this->encodeTableName('user_identity'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 

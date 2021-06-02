@@ -18,7 +18,11 @@ class m_2020_06_14_200000_create_messenger_member_table extends BaseCreateTableM
             $table->integer('id')->autoIncrement()->comment('Идентификатор');
             $table->integer('user_id')->comment('ID пользователя');
             $table->integer('chat_id')->comment('ID чата');
-            $table
+
+            $this->addForeign($table, 'user_id', 'user_identity');
+            $this->addForeign($table, 'chat_id', 'messenger_chat');
+
+            /*$table
                 ->foreign('user_id')
                 ->references('id')
                 ->on($this->encodeTableName('user_identity'))
@@ -29,7 +33,7 @@ class m_2020_06_14_200000_create_messenger_member_table extends BaseCreateTableM
                 ->references('id')
                 ->on($this->encodeTableName('messenger_chat'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 
