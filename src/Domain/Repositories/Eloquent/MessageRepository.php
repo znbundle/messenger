@@ -5,10 +5,11 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 use ZnBundle\Messenger\Domain\Repositories\Relations\MessageRelation;
+use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnLib\Db\Capsule\Manager;
 
-class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
+class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface, RelationConfigInterface
 {
 
     protected $tableName = 'messenger_message';

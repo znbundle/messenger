@@ -4,6 +4,7 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
+use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Libs\Relation\OneToOne;
@@ -12,7 +13,7 @@ use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\MemberEntity;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 
-class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface
+class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface, RelationConfigInterface
 {
 
     protected $tableName = 'messenger_member';

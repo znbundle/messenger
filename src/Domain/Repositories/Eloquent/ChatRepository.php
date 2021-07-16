@@ -5,6 +5,7 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Libs\Relation\OneToMany;
 use ZnLib\Db\Capsule\Manager;
@@ -15,7 +16,7 @@ use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use Symfony\Component\Security\Core\Security;
 
-class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface
+class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface, RelationConfigInterface
 {
 
     protected $tableName = 'messenger_chat';

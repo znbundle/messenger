@@ -3,6 +3,7 @@
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
+use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Libs\Relation\OneToOne;
@@ -12,7 +13,7 @@ use ZnBundle\Messenger\Domain\Entities\FlowEntity;
 use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 
-class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositoryInterface
+class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositoryInterface, RelationConfigInterface
 {
 
     protected $tableName = 'messenger_flow';
