@@ -1,73 +1,35 @@
 <?php
 
+//use Symfony\Component\Form\AbstractType;
+//use Symfony\Component\Form\FormView;
+//use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+//use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
+//use ZnLib\Web\Symfony4\MicroApp\Libs\FormRender;
+//
+///** @var CsrfTokenManagerInterface $tokenManager */
+//$tokenManager = ContainerHelper::getContainer()->get(CsrfTokenManagerInterface::class);
+//$formRender = new FormRender($formView, $tokenManager);
+//$formRender->addFormOption('autocomplete', 'off');
+
 /**
  * @var $formView FormView|AbstractType[]
  * @var $dataProvider DataProvider
  * @var $baseUri string
+ * @var $this \ZnLib\Web\View\View
  */
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormView;
 use ZnCore\Base\Legacy\Yii\Helpers\Url;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Libs\DataProvider;
 use ZnLib\Web\Widgets\Collection\CollectionWidget;
 
-//dd($dataProvider->getCollection()->first()->getAuthor()->getLogo());
-
 /** @var \ZnBundle\Messenger\Domain\Entities\MessageEntity[] $collection */
 $collection = $dataProvider->getCollection();
-
-$attributes = [
-    [
-        'label' => 'ID',
-        'attributeName' => 'id',
-    ],
-    [
-        'label' => 'Text',
-        'attributeName' => 'text',
-    ],
-    [
-        'label' => 'Author',
-        'attributeName' => 'author.username',
-    ],
-//    [
-//        'label' => I18Next::t('core', 'main.attribute.title'),
-//        'attributeName' => 'title',
-//        'sort' => true,
-//        'formatter' => [
-//            'class' => LinkFormatter::class,
-//            'uri' => $baseUri . '/view',
-//        ],
-//    ],
-//    [
-//        'label' => 'Application',
-//        'attributeName' => 'application.title',
-//        'sort' => true,
-//        /*'formatter' => [
-//            'class' => LinkFormatter::class,
-//            'uri' => $baseUri . '/view',
-//        ],*/
-//    ],
-//    /*[
-//        'label' => I18Next::t('core', 'main.attribute.name'),
-//        'attributeName' => 'name',
-//    ],*/
-//    [
-//        'formatter' => [
-//            'class' => ActionFormatter::class,
-//            'actions' => [
-//                'update',
-//                'delete',
-//            ],
-//            'baseUrl' => $baseUri,
-//        ],
-//    ],
-];
 
 /** @var \ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface $authService */
 $authService = \ZnCore\Base\Libs\App\Helpers\ContainerHelper::getContainer()->get(\ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface::class);
 $myId = $authService->getIdentity()->getId();
+
 
 ?>
 
@@ -89,37 +51,10 @@ $myId = $authService->getIdentity()->getId();
     </div>
     <div class="card-body">
         <div class="direct-chat-messages">
-
-            <?php foreach ($collection as $messageEntity): ?>
-
-                <?php if ($messageEntity->getAuthorId() == $myId): ?>
-                    <div class="direct-chat-msg">
-                        <div class="direct-chat-infos clearfix">
-                            <span class="direct-chat-name float-left"><?= $messageEntity->getAuthor()->getUsername() ?></span>
-                            <span class="direct-chat-timestamp float-right"><?= $messageEntity->getCreatedAt()->format('Y-m-d H:i:s') ?></span>
-                        </div>
-                        <img class="direct-chat-img" src="<?= $messageEntity->getAuthor()->getLogo() ?>"
-                             alt="message user image">
-                        <div class="direct-chat-text">
-                            <?= $messageEntity->getText() ?>
-                        </div>
-                    </div>
-                <?php else: ?>
-                    <div class="direct-chat-msg right">
-                        <div class="direct-chat-infos clearfix">
-                            <span class="direct-chat-name float-right"><?= $messageEntity->getAuthor()->getUsername() ?></span>
-                            <span class="direct-chat-timestamp float-left"><?= $messageEntity->getCreatedAt()->format('Y-m-d H:i:s') ?></span>
-                        </div>
-                        <img class="direct-chat-img" src="<?= $messageEntity->getAuthor()->getLogo() ?>"
-                             alt="message user image">
-                        <div class="direct-chat-text">
-                            <?= $messageEntity->getText() ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-            <?php endforeach; ?>
-
+            <?= $this->renderFile(__DIR__ . '/_messages.php', [
+                    'collection' => $collection,
+                    'myId' => $myId,
+            ]) ?>
         </div>
         <!--/.direct-chat-messages-->
         <div class="direct-chat-contacts">
@@ -200,13 +135,85 @@ $myId = $authService->getIdentity()->getId();
         </div>
     </div>
     <div class="card-footer">
-        <form action="#" method="post">
+        <form id="messageForm" action="/messenger/send-message" method="post" onsubmit="sendMessage(this); return false;">
             <div class="input-group">
+                <input type="hidden" name="chatId" value="<?= $formView->vars['value']->getChatId() ?>">
                 <input type="text" name="message" placeholder="Type Message ..." class="form-control">
                 <span class="input-group-append">
-              <button type="button" class="btn btn-primary">Send</button>
+              <button type="button" class="btn btn-primary" name="submit">Send</button>
             </span>
             </div>
         </form>
     </div>
 </div>
+
+<script>
+
+    var socket = new WebSocket("ws://127.0.0.1:8001?userId=1");
+    socket.onopen = function() {
+        console.log("Соединение установлено.");
+    };
+    socket.onclose = function(event) {
+        if (event.wasClean) {
+            console.log('Соединение закрыто чисто');
+        } else {
+            console.log('Обрыв соединения'); // например, "убит" процесс сервера
+        }
+        console.log('Код: ' + event.code + ' причина: ' + event.reason);
+    };
+    socket.onmessage = function(event) {
+        var data = JSON.parse(event.data);
+        var eventName = data.name;
+        var eventData = data.data;
+        //console.log("New message " + data.name);
+        if(eventName == 'sendMessage') {
+            updateMessageList(eventData.chatId);
+            console.log("New message " + eventData.chatId);
+        }
+        console.log("Получены данные " + event.data);
+    };
+    socket.onerror = function(error) {
+        console.log("Ошибка " + error.message);
+    };
+
+
+    function sendMessage() {
+        // var formElement = $(form);
+        var formElement = $('#messageForm');
+        var action = formElement.attr('action');
+        var textElement = formElement.find('input[name=message]');
+        var chatIdElement = formElement.find('input[name=chatId]');
+        var chatId = chatIdElement.val();
+        var text = textElement.val();
+
+        $.ajax({
+            type: 'POST',
+            url: action,
+            data: {
+                'text': text,
+                'chatId': chatId,
+            },
+            success: function(msg) {
+                textElement.val('');
+                // updateMessageList();
+                //alert('wow' + msg);
+            }
+        });
+    }
+
+    function updateMessageList() {
+        var formElement = $('#messageForm');
+        var chatIdElement = formElement.find('input[name=chatId]');
+        var chatId = chatIdElement.val();
+        $.ajax({
+            type: 'GET',
+            url: '/messenger/message-list/?chatId=' + chatId,
+            success: function(msg) {
+                var messageList = $('.direct-chat-messages');
+                messageList.html(msg);
+                messageList.scrollTop(messageList.prop("scrollHeight"));
+            }
+        });
+    }
+
+</script>

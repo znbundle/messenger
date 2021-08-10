@@ -4,6 +4,7 @@ namespace ZnBundle\Messenger\Domain\Services;
 
 use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
+use ZnBundle\Messenger\Domain\Forms\MessageForm;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
@@ -13,6 +14,7 @@ use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Interfaces\Libs\EntityManagerInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnLib\Rest\Contract\Client\RestClient;
 use ZnBundle\Messenger\Domain\Entities\BotEntity;
@@ -46,6 +48,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     private $auth;
 
     public function __construct(
+        EntityManagerInterface $em,
         MessageRepositoryInterface $repository,
         AuthServiceInterface $authService,
         ChatRepositoryInterface $chatRepository,
@@ -55,6 +58,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         //BotService $botService
     )
     {
+        $this->setEntityManager($em);
         $this->setRepository($repository);
         $this->auth = $authService;
         $this->chatRepository = $chatRepository;
@@ -90,6 +94,22 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         return parent::forgeQuery($query)->with('author');
     }
 
+    public function sendMessageByForm(MessageForm $messageForm)
+    {
+        $identity = $this->auth->getIdentity();
+        $chatEntity = $this->chatRepository->oneByIdWithMembers($messageForm->getChatId());
+        $messageEntity = $this->createEntity();
+        $messageEntity->setChatId($messageForm->getChatId());
+        $messageEntity->setAuthorId($identity->getId());
+        $messageEntity->setChat($chatEntity);
+        $messageEntity->setText($messageForm->getText());
+        $this->getRepository()->create($messageEntity);
+        $this->getEntityManager()->loadEntityRelations($messageEntity, ['chat.members.user']);
+        //dd($messageEntity);
+        $this->sendFlow($messageEntity);
+        return $messageEntity;
+    }
+    
     public function sendMessage(int $chatId, string $text)
     {
         $identity = $this->auth->getIdentity();
@@ -115,6 +135,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         $messageEntity->setChat($chatEntity);
         $messageEntity->setText($request['text']);
         $this->getRepository()->create($messageEntity);
+
         $this->sendFlow($messageEntity);
         return $messageEntity;
     }
@@ -137,9 +158,10 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
                 'chatId' => $memberEntity->getChatId(),
             ]);
             $this->socketDaemon->sendMessageToTcp($event);
-
-            $roles = $memberEntity->getUser()->getRoles();
-            if (in_array('ROLE_BOT', $roles)) {
+            
+//            $roles = $memberEntity->getUser()->getRoles();
+//            if (in_array('ROLE_BOT', $roles)) {
+            if(1 == 2) {
                 if($messageEntity->getAuthorId() != $memberEntity->getUserId()) {
                     $this->sendMessageToBot($memberEntity->getUser(), $messageEntity);
                 }
