@@ -19,6 +19,7 @@ class m_2020_06_14_300000_create_messenger_message_table extends BaseCreateTable
             $table->integer('author_id')->comment('ID автора');
             $table->integer('chat_id')->comment('ID чата');
             $table->string('text')->comment('Текст сообщения');
+            $table->dateTime('created_at')->default('now()')->comment('Время создания');
 
             $this->addForeign($table, 'author_id', 'user_identity');
             $this->addForeign($table, 'chat_id', 'messenger_chat');

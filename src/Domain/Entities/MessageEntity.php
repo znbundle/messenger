@@ -15,6 +15,12 @@ class MessageEntity implements EntityIdInterface
     private $chatId;
     private $author;
     private $chat;
+    private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
     /**
      * @return mixed
@@ -108,4 +114,15 @@ class MessageEntity implements EntityIdInterface
     {
         $this->chat = $chat;
     }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt($createdAt): void
+    {
+        $this->createdAt = $createdAt;
+    }
+    
 }

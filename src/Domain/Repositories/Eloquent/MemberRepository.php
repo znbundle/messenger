@@ -2,28 +2,26 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
+use App\Certification\Domain\Interfaces\Repositories\SignatureRepositoryInterface;
+use App\Certification\Domain\Interfaces\Repositories\TemplateRepositoryInterface;
 use Illuminate\Support\Collection;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Libs\Relation\OneToOne;
+use ZnCore\Domain\Relations\relations\OneToManyRelation;
+use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Capsule\Manager;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\MemberEntity;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 
-class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface, RelationConfigInterface
+class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface//, RelationConfigInterface
 {
 
     protected $tableName = 'messenger_member';
     private $userRepository;
-
-    public function __construct(Manager $capsule, IdentityRepositoryInterface $userRepository)
-    {
-        parent::__construct($capsule);
-        $this->userRepository = $userRepository;
-    }
 
     public function getEntityClass(): string
     {
@@ -37,7 +35,19 @@ class MemberRepository extends BaseEloquentCrudRepository implements MemberRepos
         return $query;
     }
 
-    public function relations()
+    public function relations2()
+    {
+        return [
+            [
+                'class' => OneToOneRelation::class,
+                'relationAttribute' => 'user_id',
+                'relationEntityAttribute' => 'user',
+                'foreignRepositoryClass' => IdentityRepositoryInterface::class,
+            ],
+        ];
+    }
+    
+    public function relations88888888888888888888888888()
     {
         return [
             'user' => [

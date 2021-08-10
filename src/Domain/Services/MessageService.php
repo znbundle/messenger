@@ -6,6 +6,7 @@ use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
+use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
 use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
@@ -46,7 +47,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
 
     public function __construct(
         MessageRepositoryInterface $repository,
-        AuthService2 $authService,
+        AuthServiceInterface $authService,
         ChatRepositoryInterface $chatRepository,
         IdentityRepositoryInterface $identityRepository,
         SocketDaemon $socketDaemon,

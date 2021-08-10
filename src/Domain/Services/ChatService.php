@@ -2,6 +2,8 @@
 
 namespace ZnBundle\Messenger\Domain\Services;
 
+use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
+use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
@@ -28,7 +30,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
     private $memberRepository;
     private $authService;
 
-    public function __construct(AuthService2 $authService, ChatRepositoryInterface $repository, MemberRepository $memberRepository)
+    public function __construct(AuthServiceInterface $authService, ChatRepositoryInterface $repository, MemberRepositoryInterface $memberRepository)
     {
         $this->setRepository($repository);
         $this->authService = $authService;

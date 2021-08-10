@@ -2,12 +2,16 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
+use App\Certification\Domain\Interfaces\Repositories\SignatureRepositoryInterface;
+use App\Certification\Domain\Interfaces\Repositories\TemplateRepositoryInterface;
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Libs\Relation\OneToMany;
+use ZnCore\Domain\Relations\relations\OneToManyRelation;
+use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Capsule\Manager;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
@@ -16,7 +20,7 @@ use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use Symfony\Component\Security\Core\Security;
 
-class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface, RelationConfigInterface
+class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface//, RelationConfigInterface
 {
 
     protected $tableName = 'messenger_chat';
@@ -24,18 +28,18 @@ class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositor
     private $memberRepository;
     //private $security;
 
-    public function __construct(
-        Manager $capsule, 
-        /*FlowRepositoryInterface $flowRepository,*/ 
-        MemberRepositoryInterface $memberRepository
-        //Security $security
-    )
-    {
-        parent::__construct($capsule);
-        //$this->flowRepository = $flowRepository;
-        $this->memberRepository = $memberRepository;
-        //$this->security = $security;
-    }
+//    public function __construct(
+//        Manager $capsule,
+//        /*FlowRepositoryInterface $flowRepository,*/
+//        MemberRepositoryInterface $memberRepository
+//        //Security $security
+//    )
+//    {
+//        parent::__construct($capsule);
+//        //$this->flowRepository = $flowRepository;
+//        $this->memberRepository = $memberRepository;
+//        //$this->security = $security;
+//    }
 
     public function getEntityClass(): string
     {
@@ -58,7 +62,20 @@ class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositor
         return $collection;
     }*/
 
-    public function relations()
+    public function relations2()
+    {
+        return [
+            [
+                'class' => OneToManyRelation::class,
+                'relationAttribute' => 'id',
+                'relationEntityAttribute' => 'members',
+                'foreignRepositoryClass' => MemberRepositoryInterface::class,
+                'foreignAttribute' => 'chat_id',
+            ],
+        ];
+    }
+    
+    public function relations888888888888888888888888888()
     {
         return [
             /*'messages' => [
