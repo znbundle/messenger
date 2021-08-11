@@ -70,93 +70,164 @@ $this->registerJs('
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function () { // Аналог $(document).ready(function(){
+    var container = {};
 
-        var socket = new WebSocket("ws://127.0.0.1:8001?userId=1");
-        socket.onopen = function () {
-            console.log("Соединение установлено.");
+    document.addEventListener('DOMContentLoaded', function () {
+
+        container.SocketService = {
+            handlers: {},
+            connect: function (url) {
+                var socket = new WebSocket(url);
+                socket.onopen = function () {
+                    console.log("Соединение установлено.");
+                };
+                socket.onclose = function (event) {
+                    if (event.wasClean) {
+                        console.log('Соединение закрыто чисто');
+                    } else {
+                        console.log('Обрыв соединения');
+                        `` // например, "убит" процесс сервера
+                    }
+                    console.log('Код: ' + event.code + ' причина: ' + event.reason);
+                };
+                socket.onmessage = function (event) {
+                    var data = JSON.parse(event.data);
+                    var eventName = data.name;
+                    var eventData = data.data;
+                    container.SocketService.trigger(data.name, data.data);
+                    console.log("Получены данные " + event.data);
+                };
+                socket.onerror = function (error) {
+                    console.log("Ошибка " + error.message);
+                };
+            },
+            addHandler: function (eventName, handler) {
+                if (this.handlers[eventName] == undefined) {
+                    this.handlers[eventName] = [];
+                }
+                this.handlers[eventName].push(handler);
+            },
+            trigger: function (eventName, params) {
+                //console.log(eventName, params);
+                var handlers = this.handlers[eventName];
+                for (var i in handlers) {
+                    var handler = handlers[i];
+                    handler.run(params);
+                }
+            },
         };
-        socket.onclose = function (event) {
-            if (event.wasClean) {
-                console.log('Соединение закрыто чисто');
-            } else {
-                console.log('Обрыв соединения'); // например, "убит" процесс сервера
+
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var chatElement = {
+            getFormElement: function () {
+                return $('#messageForm');
+            },
+            getMessagesElement: function () {
+                return $('.direct-chat-messages');
+            },
+            getUrl: function () {
+                var action = chatElement.getFormElement().attr('action');
+                return action;
+            },
+            clearMessageText: function () {
+                var textElement = chatElement.getFormElement().find('input[name=message]');
+                textElement.val('');
+            },
+            getMessageText: function () {
+                var textElement = chatElement.getFormElement().find('input[name=message]');
+                var text = textElement.val();
+                return text;
+            },
+            getChatId: function () {
+                var chatIdElement = chatElement.getFormElement().find('input[name=chatId]');
+                var chatId = chatIdElement.val();
+                return chatId;
+            },
+            setMessageList: function (msg) {
+                chatElement.getMessagesElement().html(msg);
+            },
+            scrollBottomMessageList: function () {
+                var messageList = chatElement.getMessagesElement();
+                messageList.scrollTop(messageList.prop("scrollHeight"));
+            },
+        };
+
+        var ApiDriver = {
+            request: function (method, uri, data) {
+                var promiseCallback = function (resolve, reject) {
+                    $.ajax({
+                        type: method,
+                        url: uri,
+                        data: data,
+                        success: function (response) {
+                            resolve(response);
+                        },
+                        error: function (error) {
+                            reject(response);
+                        }
+                    });
+                };
+                return new Promise(promiseCallback);
             }
-            console.log('Код: ' + event.code + ' причина: ' + event.reason);
-        };
-        socket.onmessage = function (event) {
-            var data = JSON.parse(event.data);
-            var eventName = data.name;
-            var eventData = data.data;
-            //console.log("New message " + data.name);
-            if (eventName == 'sendMessage') {
-                updateMessageList(eventData.chatId);
-                console.log("New message " + eventData.chatId);
-            }
-            console.log("Получены данные " + event.data);
-        };
-        socket.onerror = function (error) {
-            console.log("Ошибка " + error.message);
         };
 
-
-        function sendMessage() {
-            var formElement = $('#messageForm');
-            var action = formElement.attr('action');
-            var textElement = formElement.find('input[name=message]');
-            var chatIdElement = formElement.find('input[name=chatId]');
-            var chatId = chatIdElement.val();
-            var text = textElement.val();
-
-            $.ajax({
-                type: 'POST',
-                url: action,
-                data: {
-                    'text': text,
+        var ChatApiDriver = {
+            sendMessage: function (chatId, messageText) {
+                return ApiDriver.request('POST', '/messenger/send-message', {
                     'chatId': chatId,
-                },
-                success: function (msg) {
-                    textElement.val('');
-                }
-            });
-        }
+                    'text': messageText,
+                });
+            },
+            updateMessageList: function (chatId) {
+                var uri = '/messenger/message-list/?chatId=' + chatId;
+                return ApiDriver.request('GET', uri);
+            },
+        };
 
-        function updateMessageList() {
-            var formElement = $('#messageForm');
-            var chatIdElement = formElement.find('input[name=chatId]');
-            var chatId = chatIdElement.val();
-            $.ajax({
-                type: 'GET',
-                url: '/messenger/message-list/?chatId=' + chatId,
-                success: function (msg) {
-                    setMessageList(msg);
-                    scrollBottomMessageList();
-                }
-            });
-        }
+        container.chatService = {
+            sendMessage: function (chatId, messageText) {
+                ChatApiDriver
+                    .sendMessage(chatId, messageText)
+                    .then(function (msg) {
+                        chatElement.clearMessageText();
+                    });
+            },
+            updateMessageList: function () {
+                ChatApiDriver
+                    .updateMessageList(chatElement.getChatId())
+                    .then(function (messageListHtml) {
+                        chatElement.setMessageList(messageListHtml);
+                        chatElement.scrollBottomMessageList();
+                    });
+            },
+        };
 
-        function setMessageList(msg) {
-            var messageList = $('.direct-chat-messages');
-            messageList.html(msg);
-        }
-
-        function scrollBottomMessageList() {
-            var messageList = $('.direct-chat-messages');
-            messageList.scrollTop(messageList.prop("scrollHeight"));
-        }
-
-        //scrollBottomMessageList();
-
-        var formElement = $('#messageForm');
-        formElement.submit(function () {
-            sendMessage();
+        chatElement.getFormElement().submit(function () {
+            var messageText = chatElement.getMessageText();
+            var chatId = chatElement.getChatId();
+            container.chatService.sendMessage(chatId, messageText);
+            return false;
+        });
+        chatElement.getMessagesElement().show(function () {
+            chatElement.scrollBottomMessageList();
             return false;
         });
 
-        $('.direct-chat-messages').show(function () {
-            scrollBottomMessageList();
-            return false;
-        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var messageHandler = {
+            run: function (params) {
+                container.chatService.updateMessageList(params.chatId);
+            }
+        };
+
+        container.SocketService.addHandler('sendMessage', messageHandler);
+        container.SocketService.connect("ws://127.0.0.1:8001?userId=1");
 
     });
 

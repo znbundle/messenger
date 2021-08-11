@@ -6,7 +6,7 @@
 
 ?>
 
-<form id="messageForm" action="/messenger/send-message" method="post">
+<form id="messageForm" action="" method="post">
     <div class="input-group">
         <input type="hidden" name="chatId" value="<?= $formView->vars['value']->getChatId() ?>">
         <input type="text" name="message" placeholder="Type Message ..." class="form-control">
