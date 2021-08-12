@@ -2,8 +2,6 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
-use App\Certification\Domain\Interfaces\Repositories\SignatureRepositoryInterface;
-use App\Certification\Domain\Interfaces\Repositories\TemplateRepositoryInterface;
 use Illuminate\Support\Collection;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
