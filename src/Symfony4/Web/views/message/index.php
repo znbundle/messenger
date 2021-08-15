@@ -1,16 +1,5 @@
 <?php
 
-//use Symfony\Component\Form\AbstractType;
-//use Symfony\Component\Form\FormView;
-//use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-//use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
-//use ZnLib\Web\Symfony4\MicroApp\Libs\FormRender;
-//
-///** @var CsrfTokenManagerInterface $tokenManager */
-//$tokenManager = ContainerHelper::getContainer()->get(CsrfTokenManagerInterface::class);
-//$formRender = new FormRender($formView, $tokenManager);
-//$formRender->addFormOption('autocomplete', 'off');
-
 /**
  * @var $formView FormView|AbstractType[]
  * @var $dataProvider DataProvider
@@ -26,10 +15,6 @@ $collection = $dataProvider->getCollection();
 /** @var \ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface $authService */
 $authService = \ZnCore\Base\Libs\App\Helpers\ContainerHelper::getContainer()->get(\ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface::class);
 $myId = $authService->getIdentity()->getId();
-
-$this->registerJs('
-
-');
 
 ?>
 
@@ -68,4 +53,14 @@ $this->registerJs('
     </div>
 </div>
 
-<?= \ZnLib\Web\Widgets\RequireJs\RequireJsWidget::require('/rjs/pages/messenger2/service/messageService.js') ?>
+<script>
+    require([
+        '/rjs/pages/messenger2/controller/messageController',
+    ], function (
+        MessageController
+    ) {
+        MessageController.init();
+    })
+</script>
+
+<?= '' /*\ZnLib\Web\Widgets\RequireJs\RequireJsWidget::require('/rjs/pages/messenger2/controller/messageController.js')*/ ?>
