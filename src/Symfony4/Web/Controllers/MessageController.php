@@ -98,7 +98,7 @@ class MessageController extends BaseWebController
     public function index(Request $request): Response
     {
 
-        $this->layout = __DIR__ . '/../../../../../../../vendor/znsymfony/admin-panel/src/Symfony4/Admin/views/layouts/admin/blank.php';
+        $this->layout = __DIR__ . '/../../../../../../../vendor/znsymfony/admin-panel/src/Symfony4/Admin/views/layouts/admin/blank-rjs.php';
 
        // dd($request);
         //$this->checkAuth();
