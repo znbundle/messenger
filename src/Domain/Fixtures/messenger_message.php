@@ -9,6 +9,14 @@ $fixture->setCallback(function ($index, FixtureGenerator $fixtureFactory) {
         'id' => $index,
         'text' => 'text ' . $index,
         'author_id' => 11 - $fixtureFactory->ordIndex($index, 10),
+        'chat_id' => $fixtureFactory->ordIndex($index, 30),
     ];
 });
-return $fixture->generateCollection();
+
+return [
+    'deps' => [
+        'messenger_chat',
+        'user_identity',
+    ],
+    'collection' => $fixture->generateCollection(),
+];
