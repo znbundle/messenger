@@ -11,6 +11,7 @@ class Bundle extends BaseBundle
     {
         return [
             __DIR__ . '/Rpc/config/chat-routes.php',
+            __DIR__ . '/Rpc/config/message-routes.php',
         ];
     }
     
