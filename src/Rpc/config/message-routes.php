@@ -54,4 +54,14 @@ return [
         'handler_method' => 'delete',
         'status_id' => 100,
     ],
+    [
+        'method_name' => 'messenger-message.send',
+        'version' => '1',
+        'is_verify_eds' => false,
+        'is_verify_auth' => true,
+        'permission_name' => SystemRoleEnum::USER,
+        'handler_class' => MessageController::class,
+        'handler_method' => 'send',
+        'status_id' => 100,
+    ],
 ];
