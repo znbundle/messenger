@@ -14,6 +14,7 @@ use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Domain\Helpers\ValidationHelper;
 use ZnCore\Domain\Interfaces\Libs\EntityManagerInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnLib\Rest\Contract\Client\RestClient;
@@ -96,6 +97,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
 
     public function sendMessageByForm(MessageForm $messageForm)
     {
+        ValidationHelper::validateEntity($messageForm);
         $identity = $this->auth->getIdentity();
         $chatEntity = $this->chatRepository->oneByIdWithMembers($messageForm->getChatId());
         $messageEntity = $this->createEntity();
@@ -105,7 +107,6 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         $messageEntity->setText($messageForm->getText());
         $this->getRepository()->create($messageEntity);
         $this->getEntityManager()->loadEntityRelations($messageEntity, ['chat.members.user']);
-        //dd($messageEntity);
         $this->sendFlow($messageEntity);
         return $messageEntity;
     }
