@@ -21,6 +21,8 @@ class m_2020_06_14_400000_create_messenger_flow_table extends BaseCreateTableMig
             $table->integer('user_id')->comment('ID владельца');
             $table->boolean('is_seen')->comment('Прочтено');
 
+            $table->unique(['message_id', 'chat_id', 'user_id']);
+            
             $this->addForeign($table, 'message_id', 'messenger_message');
             $this->addForeign($table, 'chat_id', 'messenger_chat');
             $this->addForeign($table, 'user_id', 'user_identity');
