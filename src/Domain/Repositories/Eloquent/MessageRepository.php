@@ -6,19 +6,16 @@ use Illuminate\Support\Collection;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
-use ZnBundle\Messenger\Domain\Repositories\Relations\MessageRelation;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
-use ZnCore\Domain\Libs\Relation\OneToOne;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnLib\Db\Capsule\Manager;
 use ZnLib\Db\Mappers\TimeMapper;
 
-class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface//, RelationConfigInterface
+class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
 {
 
     protected $tableName = 'messenger_message';
@@ -52,10 +49,5 @@ class MessageRepository extends BaseEloquentCrudRepository implements MessageRep
                 'foreignRepositoryClass' => IdentityRepositoryInterface::class,
             ],
         ];
-    }
-    
-    public function relations888888888888888()
-    {
-        return $this->messageRelation->relations();
     }
 }

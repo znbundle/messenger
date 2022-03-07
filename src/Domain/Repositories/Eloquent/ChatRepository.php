@@ -5,9 +5,7 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
-use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
-use ZnCore\Domain\Libs\Relation\OneToMany;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Capsule\Manager;
@@ -18,7 +16,7 @@ use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use Symfony\Component\Security\Core\Security;
 
-class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface//, RelationConfigInterface
+class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface
 {
 
     protected $tableName = 'messenger_chat';
@@ -72,33 +70,4 @@ class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositor
             ],
         ];
     }
-    
-    public function relations888888888888888888888888888()
-    {
-        return [
-            /*'messages' => [
-                'type' => RelationEnum::CALLBACK,
-                'callback' => function (Collection $collection) {
-                    $m2m = new OneToMany;
-                    $m2m->selfModel = $this;
-                    $m2m->foreignModel = $this->flowRepository;
-                    $m2m->selfField = 'chatId';
-                    $m2m->foreignContainerField = 'messages';
-                    $m2m->run($collection);
-                },
-            ],*/
-            'members' => [
-                'type' => RelationEnum::CALLBACK,
-                'callback' => function (Collection $collection) {
-                    $m2m = new OneToMany;
-                    $m2m->selfModel = $this;
-                    $m2m->foreignModel = $this->memberRepository;
-                    $m2m->selfField = 'chatId';
-                    $m2m->foreignContainerField = 'members';
-                    $m2m->run($collection);
-                },
-            ],
-        ];
-    }
-
 }

@@ -4,10 +4,8 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
-use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Libs\Relation\OneToOne;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Capsule\Manager;
@@ -15,7 +13,7 @@ use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\MemberEntity;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 
-class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface//, RelationConfigInterface
+class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface
 {
 
     protected $tableName = 'messenger_member';
@@ -44,21 +42,4 @@ class MemberRepository extends BaseEloquentCrudRepository implements MemberRepos
             ],
         ];
     }
-    
-    public function relations88888888888888888888888888()
-    {
-        return [
-            'user' => [
-                'type' => RelationEnum::CALLBACK,
-                'callback' => function (Collection $collection) {
-                    $m2m = new OneToOne;
-                    $m2m->foreignModel = $this->userRepository;
-                    $m2m->foreignField = 'userId';
-                    $m2m->foreignContainerField = 'user';
-                    $m2m->run($collection);
-                },
-            ],
-        ];
-    }
-
 }

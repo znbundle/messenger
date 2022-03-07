@@ -3,10 +3,8 @@
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Libs\Relation\OneToOne;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Capsule\Manager;
@@ -15,7 +13,7 @@ use ZnBundle\Messenger\Domain\Entities\FlowEntity;
 use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 
-class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositoryInterface//, RelationConfigInterface
+class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositoryInterface
 {
 
     protected $tableName = 'messenger_flow';
@@ -50,22 +48,4 @@ class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositor
             ],
         ];
     }
-
-    public function relations222222222222()
-    {
-        return [
-            'message' => [
-                'type' => RelationEnum::CALLBACK,
-                'callback' => function (Collection $collection) {
-                    $m2m = new OneToOne;
-                    //$m2m->selfModel = $this;
-                    $m2m->foreignModel = $this->messageRepository;
-                    $m2m->foreignField = 'contentId';
-                    $m2m->foreignContainerField = 'message';
-                    $m2m->run($collection);
-                },
-            ],
-        ];
-    }
-
 }
