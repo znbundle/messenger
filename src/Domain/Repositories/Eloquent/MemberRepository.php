@@ -8,8 +8,8 @@ use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
-use ZnLib\Db\Capsule\Manager;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\MemberEntity;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 

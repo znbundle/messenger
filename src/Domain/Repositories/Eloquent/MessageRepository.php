@@ -11,8 +11,8 @@ use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
-use ZnLib\Db\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Base\Domain\Mappers\TimeMapper;
 
 class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
