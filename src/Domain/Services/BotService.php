@@ -3,27 +3,13 @@
 namespace ZnBundle\Messenger\Domain\Services;
 
 use FOS\UserBundle\Model\FosUserInterface;
-use GuzzleHttp\Client;
-use ZnBundle\User\Domain\Services\AuthService;
-use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
-use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
-use ZnCore\Domain\Base\BaseCrudService;
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
-use ZnCore\Domain\Libs\Query;
-use ZnLib\Rest\Contract\Client\RestClient;
 use ZnBundle\Messenger\Domain\Entities\BotEntity;
-use ZnBundle\Messenger\Domain\Entities\ChatEntity;
-use ZnBundle\Messenger\Domain\Entities\FlowEntity;
-use ZnBundle\Messenger\Domain\Entities\MessageEntity;
-use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\BotRepositoryInterface;
-use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\BotServiceInterface;
-use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
-use Psr\Container\ContainerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-use Symfony\Component\Security\Core\Security;
-use Symfony\Component\Security\Core\User\UserInterface;
+use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
+use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
+use ZnBundle\User\Domain\Services\AuthService;
+use ZnCore\Domain\Base\BaseCrudService;
 
 class BotService extends BaseCrudService implements BotServiceInterface
 {
@@ -34,8 +20,8 @@ class BotService extends BaseCrudService implements BotServiceInterface
     private $authService;
 
     public function __construct(
-        BotRepositoryInterface $botRepository, 
-        UserRepositoryInterface $userRepository, 
+        BotRepositoryInterface $botRepository,
+        IdentityRepositoryInterface $userRepository,
         //Security $security,
         AuthService $authService
     )
@@ -46,11 +32,12 @@ class BotService extends BaseCrudService implements BotServiceInterface
         $this->authService = $authService;
     }
 
-    public function authByToken(string $botToken): BotEntity {
+    public function authByToken(string $botToken): BotEntity
+    {
         list($botId) = explode(':', $botToken);
 
         $botEntity = $this->botRepository->oneByUserId($botId);
-        if($botToken != $botEntity->getToken()) {
+        if ($botToken != $botEntity->getToken()) {
             throw new UnauthorizedException();
         }
         $userEntity = $this->userRepository->oneById($botEntity->getUserId());

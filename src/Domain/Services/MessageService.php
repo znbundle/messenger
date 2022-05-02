@@ -4,33 +4,24 @@ namespace ZnBundle\Messenger\Domain\Services;
 
 use FOS\UserBundle\Model\FosUserInterface;
 use GuzzleHttp\Client;
+use Symfony\Component\Security\Core\User\UserInterface;
+use ZnBundle\Messenger\Domain\Entities\FlowEntity;
+use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Forms\MessageForm;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
+use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
-use ZnBundle\User\Domain\Exceptions\UnauthorizedException;
-use ZnBundle\User\Domain\Interfaces\Repositories\UserRepositoryInterface;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Base\BaseCrudService;
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\ValidationHelper;
 use ZnCore\Domain\Interfaces\Libs\EntityManagerInterface;
 use ZnCore\Domain\Libs\Query;
-use ZnLib\Rest\Contract\Client\RestClient;
-use ZnBundle\Messenger\Domain\Entities\BotEntity;
-use ZnBundle\Messenger\Domain\Entities\ChatEntity;
-use ZnBundle\Messenger\Domain\Entities\FlowEntity;
-use ZnBundle\Messenger\Domain\Entities\MessageEntity;
-use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
-use ZnBundle\Messenger\Domain\Interfaces\Repositories\BotRepositoryInterface;
-use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
-use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use ZnLib\Socket\Domain\Entities\SocketEventEntity;
-use ZnLib\Socket\Domain\Enums\SocketEventEnum;
 use ZnLib\Socket\Domain\Libs\SocketDaemon;
-use Psr\Container\ContainerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class MessageService extends BaseCrudService implements MessageServiceInterface
 {
