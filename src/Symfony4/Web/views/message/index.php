@@ -13,7 +13,7 @@ use ZnCore\Domain\Libs\DataProvider;
 $collection = $dataProvider->getCollection();
 
 /** @var \ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface $authService */
-$authService = \ZnCore\Base\Libs\App\Helpers\ContainerHelper::getContainer()->get(\ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface::class);
+$authService = \ZnCore\Base\Libs\Container\Helpers\ContainerHelper::getContainer()->get(\ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface::class);
 $myId = $authService->getIdentity()->getId();
 
 ?>
