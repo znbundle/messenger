@@ -14,6 +14,8 @@ return [
         'handler_class' => MessageController::class,
         'handler_method' => 'all',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-message.oneById',
@@ -24,6 +26,8 @@ return [
         'handler_class' => MessageController::class,
         'handler_method' => 'oneById',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-message.create',
@@ -34,6 +38,8 @@ return [
         'handler_class' => MessageController::class,
         'handler_method' => 'add',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-message.update',
@@ -44,6 +50,8 @@ return [
         'handler_class' => MessageController::class,
         'handler_method' => 'update',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-message.delete',
@@ -54,6 +62,8 @@ return [
         'handler_class' => MessageController::class,
         'handler_method' => 'delete',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-message.send',
@@ -64,5 +74,7 @@ return [
         'handler_class' => MessageController::class,
         'handler_method' => 'send',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
 ];

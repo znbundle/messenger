@@ -14,6 +14,8 @@ return [
         'handler_class' => ChatController::class,
         'handler_method' => 'all',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-chat.oneById',
@@ -24,6 +26,8 @@ return [
         'handler_class' => ChatController::class,
         'handler_method' => 'oneById',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-chat.create',
@@ -34,6 +38,8 @@ return [
         'handler_class' => ChatController::class,
         'handler_method' => 'add',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-chat.update',
@@ -44,6 +50,8 @@ return [
         'handler_class' => ChatController::class,
         'handler_method' => 'update',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
     [
         'method_name' => 'messenger-chat.delete',
@@ -54,5 +62,7 @@ return [
         'handler_class' => ChatController::class,
         'handler_method' => 'delete',
         'status_id' => 100,
+        'title' => null,
+        'description' => null,
     ],
 ];
