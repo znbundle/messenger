@@ -31,12 +31,12 @@ class Bundle extends BaseBundle
         ];
     }*/
 
-    public function symfonyWeb(): array
+    /*public function symfonyWeb(): array
     {
         return [
             __DIR__ . '/Symfony4/Web/config/routing.php',
         ];
-    }
+    }*/
 
     /*public function i18next(): array
     {
