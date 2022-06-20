@@ -6,6 +6,7 @@ use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
 use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
@@ -44,7 +45,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
         $memberQuery = Query::forge();
         $memberQuery->where('user_id', $userEntity->getId());
         $memberCollection = $this->memberRepository->all($memberQuery);
-        $chatIdArray = EntityHelper::getColumn($memberCollection, 'chatId');
+        $chatIdArray = CollectionHelper::getColumn($memberCollection, 'chatId');
         return $chatIdArray;
     }
 

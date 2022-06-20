@@ -5,6 +5,7 @@ namespace ZnBundle\Messenger\Symfony4\Api\Controllers;
 use ZnBundle\User\Domain\Entities\User;
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
@@ -34,6 +35,6 @@ class ChatController extends BaseCrudApiController
         $query = new Query;
         $query->with('members.user');
         $chatCollection = $this->service->all($query);
-        return new JsonResponse(EntityHelper::collectionToArray($chatCollection));
+        return new JsonResponse(CollectionHelper::toArray($chatCollection));
     }
 }
