@@ -3,7 +3,7 @@
 namespace ZnBundle\Messenger\Domain\Filters;
 
 use Symfony\Component\Validator\Mapping\ClassMetadata;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
+use ZnCore\Base\Libs\Entity\Interfaces\ValidateEntityByMetadataInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class MessageFilter implements ValidateEntityByMetadataInterface
