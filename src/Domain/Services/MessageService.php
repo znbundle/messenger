@@ -19,7 +19,7 @@ use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Base\Libs\Validation\Helpers\ValidationHelper;
 use ZnCore\Base\Libs\EntityManager\Interfaces\EntityManagerInterface;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnLib\Socket\Domain\Entities\SocketEventEntity;
 use ZnLib\Socket\Domain\Libs\SocketDaemon;
 

@@ -3,7 +3,7 @@
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;

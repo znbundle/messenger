@@ -5,7 +5,7 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use Illuminate\Support\Collection;
 use ZnCore\Domain\Enums\RelationEnum;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;

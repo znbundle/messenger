@@ -6,7 +6,7 @@ use ZnBundle\User\Domain\Entities\User;
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Base\Enums\Http\HttpHeaderEnum;
 use ZnLib\Rest\Symfony4\Base\BaseCrudApiController;
 use ZnLib\Rest\Libs\SymfonyAuthenticator;

@@ -4,11 +4,11 @@ namespace ZnBundle\Messenger\Symfony4\Api\Controllers;
 
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;
-use ZnCore\Domain\Entities\Query\Where;
+use ZnCore\Base\Libs\Query\Entities\Where;
 use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Helpers\QueryHelper;
-use ZnCore\Domain\Libs\DataProvider;
+use ZnCore\Base\Libs\Query\Helpers\QueryHelper;
+use ZnCore\Base\Libs\DataProvider\Libs\DataProvider;
 use ZnLib\Rest\Symfony4\Base\BaseCrudApiController;
 use ZnLib\Rest\Libs\Serializer\JsonRestSerializer;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
@@ -16,6 +16,7 @@ use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use ZnLib\Web\Helpers\WebQueryHelper;
 
 class MessageController extends BaseCrudApiController
 {
@@ -39,7 +40,7 @@ class MessageController extends BaseCrudApiController
         $chatCollection = $this->chatService->all();
         $queryParams = $request->query->all();
         unset($queryParams['Authorization']);
-        $query = QueryHelper::getAllParams($queryParams);
+        $query = WebQueryHelper::getAllParams($queryParams);
         $whereChat = new Where('chat_id', $chatId);
         $query->whereNew($whereChat);
         $query->orderBy(['id'=>SORT_ASC]);
