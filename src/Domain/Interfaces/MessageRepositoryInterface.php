@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Interfaces;
 
-use ZnCore\Domain\Interfaces\Repository\CrudRepositoryInterface;
+use ZnCore\Base\Libs\Repository\Interfaces\CrudRepositoryInterface;
 
 interface MessageRepositoryInterface extends CrudRepositoryInterface
 {

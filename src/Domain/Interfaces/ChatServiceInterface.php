@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Interfaces;
 
-use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
+use ZnCore\Base\Libs\Service\Interfaces\CrudServiceInterface;
 
 interface ChatServiceInterface extends CrudServiceInterface
 {
