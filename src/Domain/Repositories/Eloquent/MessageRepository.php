@@ -9,8 +9,8 @@ use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Relations\relations\OneToManyRelation;
-use ZnCore\Domain\Relations\relations\OneToOneRelation;
+use ZnCore\Base\Libs\Relation\Libs\Types\OneToManyRelation;
+use ZnCore\Base\Libs\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Base\Domain\Mappers\TimeMapper;
