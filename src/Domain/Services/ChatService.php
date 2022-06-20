@@ -8,7 +8,7 @@ use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
 use ZnCore\Domain\Libs\Query;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Interfaces\GetEntityClassInterface;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
