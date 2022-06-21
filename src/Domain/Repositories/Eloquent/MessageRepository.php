@@ -13,7 +13,7 @@ use ZnCore\Base\Libs\Relation\Libs\Types\OneToManyRelation;
 use ZnCore\Base\Libs\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnDatabase\Base\Domain\Mappers\TimeMapper;
+use ZnCore\Base\Libs\Repository\Mappers\TimeMapper;
 
 class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
 {

@@ -7,7 +7,7 @@ use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
-use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
+use ZnCore\Base\Libs\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnCore\Base\Libs\Domain\Interfaces\GetEntityClassInterface;

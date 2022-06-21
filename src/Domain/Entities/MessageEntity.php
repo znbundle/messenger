@@ -3,7 +3,7 @@
 namespace ZnBundle\Messenger\Domain\Entities;
 
 use ZnCore\Contract\User\Interfaces\Entities\IdentityEntityInterface;
-use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
+use ZnCore\Base\Libs\Entity\Interfaces\EntityIdInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class MessageEntity implements EntityIdInterface
