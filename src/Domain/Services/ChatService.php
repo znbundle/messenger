@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Services;
 
+use Illuminate\Support\Enumerable;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
@@ -49,7 +50,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
         return $chatIdArray;
     }
 
-    public function all(Query $query = null)
+    public function all(Query $query = null): Enumerable
     {
         /** @var ChatEntity[] $collection */
         $collection = parent::all($query);
