@@ -24,7 +24,7 @@ class MemberRepository extends BaseEloquentCrudRepository implements MemberRepos
         return MemberEntity::class;
     }
 
-    protected function forgeQuery(Query $query = null)
+    protected function forgeQuery(Query $query = null): Query
     {
         $query = parent::forgeQuery($query);
         $query->with('user');
