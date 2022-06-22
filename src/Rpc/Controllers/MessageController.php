@@ -6,7 +6,7 @@ use ZnBundle\Messenger\Domain\Filters\MessageFilter;
 use ZnBundle\Messenger\Domain\Forms\MessageForm;
 use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\TournamentServiceInterface;
-use ZnCore\Base\Libs\DotEnv\DotEnv;
+use ZnCore\Base\Libs\DotEnv\Domain\Libs\DotEnv;
 use ZnCore\Base\Libs\Validation\Helpers\ValidationHelper;
 use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnLib\Rpc\Domain\Entities\RpcRequestEntity;
