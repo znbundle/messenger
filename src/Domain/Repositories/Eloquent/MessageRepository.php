@@ -9,11 +9,11 @@ use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface
 use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Repositories\Eloquent\IdentityRepository;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Base\Libs\Relation\Libs\Types\OneToManyRelation;
-use ZnCore\Base\Libs\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
+use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnCore\Base\Libs\Repository\Mappers\TimeMapper;
+use ZnCore\Domain\Repository\Mappers\TimeMapper;
 
 class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
 {

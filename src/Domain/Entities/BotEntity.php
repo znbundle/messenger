@@ -3,7 +3,7 @@
 namespace ZnBundle\Messenger\Domain\Entities;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Libs\Entity\Interfaces\EntityIdInterface;
+use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use Symfony\Component\Security\Core\Security;
 
 class BotEntity implements EntityIdInterface

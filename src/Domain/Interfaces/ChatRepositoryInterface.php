@@ -2,8 +2,8 @@
 
 namespace ZnBundle\Messenger\Domain\Interfaces;
 
-use ZnCore\Base\Libs\Repository\Interfaces\CrudRepositoryInterface;
-use ZnCore\Base\Libs\Query\Entities\Query;
+use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
+use ZnCore\Domain\Query\Entities\Query;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 
 interface ChatRepositoryInterface extends CrudRepositoryInterface

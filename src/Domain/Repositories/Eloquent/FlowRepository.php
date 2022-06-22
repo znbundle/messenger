@@ -3,10 +3,10 @@
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
 use Illuminate\Support\Collection;
-use ZnCore\Base\Libs\Query\Entities\Query;
+use ZnCore\Domain\Query\Entities\Query;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Base\Libs\Relation\Libs\Types\OneToManyRelation;
-use ZnCore\Base\Libs\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
+use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\FlowEntity;

@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Symfony4\Widgets;
 
-use ZnCore\Base\Libs\Query\Entities\Query;
+use ZnCore\Domain\Query\Entities\Query;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use ZnLib\Web\Widgets\Base\BaseWidget;
