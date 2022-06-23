@@ -5,7 +5,7 @@ namespace ZnBundle\Messenger\Symfony4\Api\Controllers;
 use ZnBundle\User\Domain\Symfony\Authenticator;
 use ZnBundle\User\Domain\Traits\AccessTrait;
 use ZnCore\Domain\Query\Entities\Where;
-use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Query\Helpers\QueryHelper;
 use ZnCore\Domain\DataProvider\Libs\DataProvider;

@@ -17,7 +17,7 @@ use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Service\Base\BaseCrudService;
-use ZnCore\Base\Libs\Validation\Helpers\ValidationHelper;
+use ZnCore\Base\Validation\Helpers\ValidationHelper;
 use ZnCore\Domain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnLib\Socket\Domain\Entities\SocketEventEntity;
