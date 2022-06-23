@@ -8,7 +8,7 @@ use ZnBundle\User\Domain\Traits\AccessTrait;
 use ZnCore\Domain\Entity\Helpers\CollectionHelper;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Base\Enums\Http\HttpHeaderEnum;
+use ZnCore\Base\Libs\Http\Enums\HttpHeaderEnum;
 use ZnLib\Rest\Symfony4\Base\BaseCrudApiController;
 use ZnLib\Rest\Libs\SymfonyAuthenticator;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
