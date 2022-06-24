@@ -31,7 +31,7 @@ class MemberRepository extends BaseEloquentCrudRepository implements MemberRepos
         return $query;
     }
 
-    public function relations2()
+    public function relations()
     {
         return [
             [

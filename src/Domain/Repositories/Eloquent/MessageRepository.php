@@ -33,7 +33,7 @@ class MessageRepository extends BaseEloquentCrudRepository implements MessageRep
         ];
     }
 
-    public function relations2()
+    public function relations()
     {
         return [
             [

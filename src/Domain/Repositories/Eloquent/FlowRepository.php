@@ -37,7 +37,7 @@ class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositor
         return $query;
     }
 
-    public function relations2()
+    public function relations()
     {
         return [
             [

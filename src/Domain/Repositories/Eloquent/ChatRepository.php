@@ -58,7 +58,7 @@ class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositor
         return $collection;
     }*/
 
-    public function relations2()
+    public function relations()
     {
         return [
             [
