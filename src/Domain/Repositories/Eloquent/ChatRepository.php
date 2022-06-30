@@ -46,7 +46,7 @@ class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositor
     {
         $query = $this->forgeQuery($query);
         $query->with('members.user');
-        return parent::oneById($id, $query);
+        return parent::findOneById($id, $query);
     }
 
     /*public function _all(Query $query = null)
