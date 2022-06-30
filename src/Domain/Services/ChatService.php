@@ -53,7 +53,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
     public function findAll(Query $query = null): Enumerable
     {
         /** @var ChatEntity[] $collection */
-        $collection = parent::all($query);
+        $collection = parent::findAll($query);
         foreach ($collection as $entity) {
             $entity->setAuthUserId($this->authService->getIdentity()->getId());
         }
