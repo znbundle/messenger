@@ -135,7 +135,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     private function sendFlow(MessageEntity $messageEntity)
     {
         $chatEntity = $messageEntity->getChat();
-        $author = $this->identityRepository->oneById($messageEntity->getAuthorId());
+        $author = $this->identityRepository->findOneById($messageEntity->getAuthorId());
         $messageEntity->setAuthor($author);
 
         foreach ($chatEntity->getMembers() as $memberEntity) {

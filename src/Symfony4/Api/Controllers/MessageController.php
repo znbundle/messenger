@@ -36,8 +36,8 @@ class MessageController extends BaseCrudApiController
     
     public function allByChatId(Request $request, int $chatId = null) {
         //dd($chatId);
-        $chatEntity = $this->chatService->oneById($chatId);
-        $chatCollection = $this->chatService->all();
+        $chatEntity = $this->chatService->findOneById($chatId);
+        $chatCollection = $this->chatService->findAll();
         $queryParams = $request->query->all();
         unset($queryParams['Authorization']);
         $query = WebQueryHelper::getAllParams($queryParams);

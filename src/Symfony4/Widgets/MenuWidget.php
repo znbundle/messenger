@@ -26,7 +26,7 @@ class MenuWidget extends BaseWidget implements ContainerAwareInterface
         $query->limit(5);
 
         /** @var MessageEntity[] $messageCollection */
-        $messageCollection = $messageService->all($query);
+        $messageCollection = $messageService->findAll($query);
 
         $itemsHtml = [];
         foreach ($messageCollection as $messageEntity) {

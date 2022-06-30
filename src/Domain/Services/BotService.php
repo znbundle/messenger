@@ -40,7 +40,7 @@ class BotService extends BaseCrudService implements BotServiceInterface
         if ($botToken != $botEntity->getToken()) {
             throw new UnauthorizedException();
         }
-        $userEntity = $this->userRepository->oneById($botEntity->getUserId());
+        $userEntity = $this->userRepository->findOneById($botEntity->getUserId());
         $this->authService->authByIdentity($userEntity);
         return $botEntity;
     }

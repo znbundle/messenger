@@ -34,7 +34,7 @@ class ChatController extends BaseCrudApiController
     {
         $query = new Query;
         $query->with('members.user');
-        $chatCollection = $this->service->all($query);
+        $chatCollection = $this->service->findAll($query);
         return new JsonResponse(CollectionHelper::toArray($chatCollection));
     }
 }
