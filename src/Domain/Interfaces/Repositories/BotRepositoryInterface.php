@@ -8,5 +8,5 @@ use ZnBundle\Messenger\Domain\Entities\BotEntity;
 interface BotRepositoryInterface extends CrudRepositoryInterface
 {
 
-    public function oneByUserId(int $userId): BotEntity;
+    public function findOneByUserId(int $userId): BotEntity;
 }

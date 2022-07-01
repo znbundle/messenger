@@ -9,5 +9,5 @@ use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 interface ChatRepositoryInterface extends CrudRepositoryInterface
 {
 
-    public function oneByIdWithMembers($id, Query $query = null): ChatEntity;
+    public function findOneByIdWithMembers($id, Query $query = null): ChatEntity;
 }

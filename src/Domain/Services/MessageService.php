@@ -90,7 +90,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     {
         ValidationHelper::validateEntity($messageForm);
         $identity = $this->auth->getIdentity();
-        $chatEntity = $this->chatRepository->oneByIdWithMembers($messageForm->getChatId());
+        $chatEntity = $this->chatRepository->findOneByIdWithMembers($messageForm->getChatId());
         $messageEntity = $this->createEntity();
         $messageEntity->setChatId($messageForm->getChatId());
         $messageEntity->setAuthorId($identity->getId());
@@ -105,7 +105,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     public function sendMessage(int $chatId, string $text)
     {
         $identity = $this->auth->getIdentity();
-        $chatEntity = $this->chatRepository->oneByIdWithMembers($chatId);
+        $chatEntity = $this->chatRepository->findOneByIdWithMembers($chatId);
         $messageEntity = $this->createEntity();
         $messageEntity->setChatId($chatId);
         $messageEntity->setAuthorId($identity->getId());
@@ -119,7 +119,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
     public function sendMessageFromBot($botToken, array $request)
     {
         $botEntity = $this->botService->authByToken($botToken);
-        $chatEntity = $this->chatService->repository->oneByIdWithMembers($request['chat_id']);
+        $chatEntity = $this->chatService->repository->findOneByIdWithMembers($request['chat_id']);
 
         $messageEntity = new MessageEntity;
         $messageEntity->setAuthorId($botEntity->getUserId());
@@ -191,7 +191,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
             ]
         ];
 
-        $botEntity = $this->botRepository->oneByUserId($botIdentity->getId());
+        $botEntity = $this->botRepository->findOneByUserId($botIdentity->getId());
         $client = new Client(['base_uri' => $botEntity->getHookUrl()]);
         $response = $client->post(null, [
             'json' => $data,

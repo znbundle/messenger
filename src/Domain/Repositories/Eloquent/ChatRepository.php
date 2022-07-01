@@ -42,7 +42,7 @@ class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositor
         return ChatEntity::class;
     }
 
-    public function oneByIdWithMembers($id, Query $query = null): ChatEntity
+    public function findOneByIdWithMembers($id, Query $query = null): ChatEntity
     {
         $query = $this->forgeQuery($query);
         $query->with('members.user');
