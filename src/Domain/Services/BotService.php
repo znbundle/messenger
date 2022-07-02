@@ -7,7 +7,7 @@ use ZnBundle\Messenger\Domain\Entities\BotEntity;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\BotRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\BotServiceInterface;
 use ZnCore\Contract\User\Exceptions\UnauthorizedException;
-use ZnBundle\User\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
+use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnCore\Domain\Service\Base\BaseCrudService;
 
