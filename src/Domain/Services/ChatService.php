@@ -3,23 +3,19 @@
 namespace ZnBundle\Messenger\Domain\Services;
 
 use Illuminate\Support\Enumerable;
-use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
-use ZnUser\Authentication\Domain\Interfaces\Services\AuthServiceInterface;
-use ZnBundle\User\Domain\Services\AuthService;
-use ZnBundle\User\Domain\Services\AuthService2;
-use ZnCore\Domain\Entity\Helpers\CollectionHelper;
-use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Domain\Interfaces\GetEntityClassInterface;
-use ZnCore\Domain\Service\Base\BaseCrudService;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
-use ZnBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
+use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use ZnBundle\User\Domain\Entities\User;
-use ZnUser\Authentication\Domain\Traits\UserAwareTrait;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use ZnBundle\User\Domain\Services\AuthService;
+use ZnBundle\User\Domain\Services\AuthService2;
+use ZnCore\Domain\Domain\Interfaces\GetEntityClassInterface;
+use ZnCore\Domain\Entity\Helpers\CollectionHelper;
+use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
+use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnUser\Authentication\Domain\Interfaces\Services\AuthServiceInterface;
 
 /**
  * @property ChatRepositoryInterface | GetEntityClassInterface $repository
@@ -35,6 +31,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
     public function __construct(AuthServiceInterface $authService, ChatRepositoryInterface $repository, MemberRepositoryInterface $memberRepository)
     {
         $this->setRepository($repository);
+        // todo: заменить на Security
         $this->authService = $authService;
         $this->memberRepository = $memberRepository;
     }
