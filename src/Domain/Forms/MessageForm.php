@@ -28,13 +28,13 @@ class MessageForm implements ValidationByMetadataInterface, BuildFormInterface
     {
         $formBuilder
             ->add('chatId', TextType::class, [
-                //'label' => I18Next::t('user', 'auth.attribute.login')
+                //'label' => I18Next::t('authentication', 'auth.attribute.login')
             ])
             ->add('text', HiddenType::class, [
-                //'label' => I18Next::t('user', 'auth.attribute.login')
+                //'label' => I18Next::t('authentication', 'auth.attribute.login')
             ])
             ->add('save', SubmitType::class, [
-                'label' => I18Next::t('user', 'auth.login_action')
+                'label' => I18Next::t('authentication', 'auth.login_action')
             ]);
     }
 
