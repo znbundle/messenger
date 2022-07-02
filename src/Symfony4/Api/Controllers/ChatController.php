@@ -3,8 +3,8 @@
 namespace ZnBundle\Messenger\Symfony4\Api\Controllers;
 
 use ZnBundle\User\Domain\Entities\User;
-use ZnBundle\User\Domain\Symfony\Authenticator;
-use ZnBundle\User\Domain\Traits\AccessTrait;
+use ZnUser\Authentication\Domain\Symfony\Authenticator;
+use ZnUser\Authentication\Domain\Traits\AccessTrait;
 use ZnCore\Domain\Entity\Helpers\CollectionHelper;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Query\Entities\Query;

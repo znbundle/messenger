@@ -4,7 +4,7 @@ namespace ZnBundle\Messenger\Domain\Services;
 
 use Illuminate\Support\Enumerable;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
-use ZnBundle\User\Domain\Interfaces\Services\AuthServiceInterface;
+use ZnUser\Authentication\Domain\Interfaces\Services\AuthServiceInterface;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Entity\Helpers\CollectionHelper;
@@ -18,7 +18,7 @@ use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
 use ZnBundle\Messenger\Domain\Repositories\Eloquent\MemberRepository;
 use ZnBundle\User\Domain\Entities\User;
-use ZnBundle\User\Domain\Traits\UserAwareTrait;
+use ZnUser\Authentication\Domain\Traits\UserAwareTrait;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
