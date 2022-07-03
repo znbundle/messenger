@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnCore\Domain\Enums\RelationEnum;

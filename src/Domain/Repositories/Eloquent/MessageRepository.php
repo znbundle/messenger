@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;

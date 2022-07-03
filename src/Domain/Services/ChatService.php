@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Services;
 
-use Illuminate\Support\Enumerable;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\ChatServiceInterface;
