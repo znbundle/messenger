@@ -76,7 +76,7 @@ class ChatEntity implements EntityIdInterface
     }
 
     /**
-     * @return Collection | MemberEntity[]
+     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | MemberEntity[]
      */
     public function getMembers(): ?Collection
     {
