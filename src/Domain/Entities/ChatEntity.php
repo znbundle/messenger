@@ -3,7 +3,6 @@
 namespace ZnBundle\Messenger\Domain\Entities;
 
 use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 
 class ChatEntity implements EntityIdInterface

@@ -2,19 +2,13 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
-use ZnCore\Domain\Collection\Libs\Collection;
-use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
-use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
-use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
-use Symfony\Component\Security\Core\Security;
+use ZnCore\Domain\Enums\RelationEnum;
+use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface
 {

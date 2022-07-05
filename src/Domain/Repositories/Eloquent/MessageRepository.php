@@ -2,18 +2,14 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
-use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
-use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
-use ZnUser\Identity\Domain\Repositories\Eloquent\IdentityRepository;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
 use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
-use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
-use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnCore\Domain\Repository\Mappers\TimeMapper;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
+use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 
 class MessageRepository extends BaseEloquentCrudRepository implements MessageRepositoryInterface
 {

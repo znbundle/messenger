@@ -2,16 +2,13 @@
 
 namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 
-use ZnCore\Domain\Collection\Libs\Collection;
-use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
-use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnBundle\Messenger\Domain\Entities\MemberEntity;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
+use ZnCore\Domain\Enums\RelationEnum;
+use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
+use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 
 class MemberRepository extends BaseEloquentCrudRepository implements MemberRepositoryInterface
 {
