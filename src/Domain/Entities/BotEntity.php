@@ -2,9 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Entities;
 
-use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use Symfony\Component\Security\Core\Security;
 
 class BotEntity implements EntityIdInterface
 {
@@ -14,10 +12,11 @@ class BotEntity implements EntityIdInterface
     private $authKey;
     private $hookUrl;
 
-    public function getToken() {
+    public function getToken()
+    {
         return $this->getUserId() . ':' . $this->getAuthKey();
     }
-    
+
     /**
      * @return mixed
      */

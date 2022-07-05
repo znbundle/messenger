@@ -2,9 +2,9 @@
 
 namespace ZnBundle\Messenger\Domain\Entities;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use Symfony\Component\Security\Core\Security;
 
 class ChatEntity implements EntityIdInterface
 {
@@ -28,9 +28,9 @@ class ChatEntity implements EntityIdInterface
 
     public function getLogo()
     {
-        if($this->getType() == 'dialog' && $this->getMembers()) {
+        if ($this->getType() == 'dialog' && $this->getMembers()) {
             foreach ($this->getMembers() as $memberEntity) {
-                if($memberEntity->getUserId() != $this->getAuthUserId()) {
+                if ($memberEntity->getUserId() != $this->getAuthUserId()) {
                     return $memberEntity->getUser()->getLogo();
                 }
             }
@@ -40,9 +40,9 @@ class ChatEntity implements EntityIdInterface
 
     public function getTitle()
     {
-        if($this->getType() == 'dialog' && $this->getMembers()) {
+        if ($this->getType() == 'dialog' && $this->getMembers()) {
             foreach ($this->getMembers() as $memberEntity) {
-                if($memberEntity->getUserId() != $this->getAuthUserId()) {
+                if ($memberEntity->getUserId() != $this->getAuthUserId()) {
                     return $memberEntity->getUser()->getUsername();
                 }
             }
@@ -70,15 +70,15 @@ class ChatEntity implements EntityIdInterface
         return $this->messages;
     }
 
-    public function setMessages(Collection $messages): void
+    public function setMessages(Enumerable $messages): void
     {
         $this->messages = $messages;
     }
 
     /**
-     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | MemberEntity[]
+     * @return Enumerable | MemberEntity[]
      */
-    public function getMembers(): ?Collection
+    public function getMembers(): ?Enumerable
     {
         return $this->members;
     }
