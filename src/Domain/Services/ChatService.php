@@ -10,7 +10,7 @@ use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use ZnBundle\User\Domain\Entities\User;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
-use ZnCore\Domain\Domain\Interfaces\GetEntityClassInterface;
+use ZnCore\Domain\Interfaces\GetEntityClassInterface;
 use ZnCore\Entity\Helpers\CollectionHelper;
 use ZnCore\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Query\Entities\Query;
