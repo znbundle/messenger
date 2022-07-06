@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Entities;
 
-use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
+use ZnCore\Entity\Interfaces\EntityIdInterface;
 
 class BotEntity implements EntityIdInterface
 {
