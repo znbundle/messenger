@@ -57,7 +57,7 @@ class ChatService extends BaseCrudService implements ChatServiceInterface
         return $collection;
     }
 
-    protected function forgeQuery(Query $query = null)
+    protected function forgeQuery(Query $query = null): Query
     {
         $query = parent::forgeQuery($query);
         $chatIdArray = $this->allSelfChatIds();

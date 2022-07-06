@@ -81,7 +81,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
         return $entity;
     }
 
-    protected function forgeQuery(Query $query = null)
+    protected function forgeQuery(Query $query = null): Query
     {
         return parent::forgeQuery($query)->with('author');
     }
