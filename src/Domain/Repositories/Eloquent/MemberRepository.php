@@ -5,8 +5,8 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use ZnBundle\Messenger\Domain\Entities\MemberEntity;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Query\Entities\Query;
+use ZnCore\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 

@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Interfaces\Services;
 
-use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
+use ZnCore\Service\Interfaces\CrudServiceInterface;
 use ZnBundle\Messenger\Domain\Entities\BotEntity;
 
 interface BotServiceInterface extends CrudServiceInterface

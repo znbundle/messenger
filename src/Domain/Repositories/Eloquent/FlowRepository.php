@@ -6,8 +6,8 @@ use ZnBundle\Messenger\Domain\Entities\FlowEntity;
 use ZnBundle\Messenger\Domain\Interfaces\FlowRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Query\Entities\Query;
+use ZnCore\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class FlowRepository extends BaseEloquentCrudRepository implements FlowRepositoryInterface

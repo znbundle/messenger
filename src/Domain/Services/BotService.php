@@ -9,7 +9,7 @@ use ZnBundle\Messenger\Domain\Interfaces\Services\BotServiceInterface;
 use ZnCore\Contract\User\Exceptions\UnauthorizedException;
 use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 use ZnBundle\User\Domain\Services\AuthService;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Service\Base\BaseCrudService;
 
 class BotService extends BaseCrudService implements BotServiceInterface
 {

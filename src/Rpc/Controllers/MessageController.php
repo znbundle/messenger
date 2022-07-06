@@ -8,7 +8,7 @@ use ZnBundle\Messenger\Domain\Interfaces\Services\MessageServiceInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Services\TournamentServiceInterface;
 use ZnCore\DotEnv\Domain\Libs\DotEnv;
 use ZnCore\Validation\Helpers\ValidationHelper;
-use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Query\Entities\Query;
 use ZnLib\Rpc\Domain\Entities\RpcRequestEntity;
 use ZnLib\Rpc\Domain\Entities\RpcResponseEntity;
 use ZnLib\Rpc\Rpc\Base\BaseCrudRpcController;

@@ -13,8 +13,8 @@ use ZnBundle\User\Domain\Services\AuthService2;
 use ZnCore\Domain\Domain\Interfaces\GetEntityClassInterface;
 use ZnCore\Entity\Helpers\CollectionHelper;
 use ZnCore\Entity\Interfaces\EntityIdInterface;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Query\Entities\Query;
+use ZnCore\Service\Base\BaseCrudService;
 use ZnUser\Authentication\Domain\Interfaces\Services\AuthServiceInterface;
 
 /**

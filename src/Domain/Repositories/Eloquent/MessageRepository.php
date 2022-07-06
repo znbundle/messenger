@@ -6,8 +6,8 @@ use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
 use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
-use ZnCore\Domain\Repository\Mappers\TimeMapper;
+use ZnCore\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Repository\Mappers\TimeMapper;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 
