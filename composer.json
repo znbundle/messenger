@@ -10,7 +10,9 @@
 	],
 	"minimum-stability": "dev",
 	"require": {
-		"guzzlehttp/guzzle": ">5.3"
+		"guzzlehttp/guzzle": ">5.3",
+		"znpack/core": "0.x-dev",
+		"znpack/domain": "0.x-dev"
 	},
 	"autoload": {
 		"psr-4": {
