@@ -5,9 +5,9 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use ZnBundle\Messenger\Domain\Entities\ChatEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\MemberRepositoryInterface;
-use ZnCore\Domain\Enums\RelationEnum;
+use ZnDomain\Domain\Enums\RelationEnum;
 use ZnCore\Query\Entities\Query;
-use ZnCore\Relation\Libs\Types\OneToManyRelation;
+use ZnDomain\Relation\Libs\Types\OneToManyRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class ChatRepository extends BaseEloquentCrudRepository implements ChatRepositoryInterface

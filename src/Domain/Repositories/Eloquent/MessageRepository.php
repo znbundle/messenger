@@ -5,9 +5,9 @@ namespace ZnBundle\Messenger\Domain\Repositories\Eloquent;
 use ZnBundle\Messenger\Domain\Entities\MessageEntity;
 use ZnBundle\Messenger\Domain\Interfaces\ChatRepositoryInterface;
 use ZnBundle\Messenger\Domain\Interfaces\Repositories\MessageRepositoryInterface;
-use ZnCore\Domain\Enums\RelationEnum;
-use ZnCore\Relation\Libs\Types\OneToOneRelation;
-use ZnCore\Repository\Mappers\TimeMapper;
+use ZnDomain\Domain\Enums\RelationEnum;
+use ZnDomain\Relation\Libs\Types\OneToOneRelation;
+use ZnDomain\Repository\Mappers\TimeMapper;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 use ZnUser\Identity\Domain\Interfaces\Repositories\IdentityRepositoryInterface;
 
