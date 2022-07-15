@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Messenger\Domain\Entities;
 
-use ZnCore\Entity\Interfaces\EntityIdInterface;
+use ZnDomain\Entity\Interfaces\EntityIdInterface;
 
 class FlowEntity implements EntityIdInterface
 {
