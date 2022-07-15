@@ -11,7 +11,7 @@ use ZnBundle\User\Domain\Entities\User;
 use ZnBundle\User\Domain\Services\AuthService;
 use ZnBundle\User\Domain\Services\AuthService2;
 use ZnDomain\Domain\Interfaces\GetEntityClassInterface;
-use ZnDomain\Entity\Helpers\CollectionHelper;
+use ZnCore\Collection\Helpers\CollectionHelper;
 use ZnDomain\Entity\Interfaces\EntityIdInterface;
 use ZnDomain\Query\Entities\Query;
 use ZnDomain\Service\Base\BaseCrudService;
