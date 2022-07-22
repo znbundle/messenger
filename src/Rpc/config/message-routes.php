@@ -1,8 +1,7 @@
 <?php
 
-use ZnUser\Rbac\Domain\Enums\Rbac\SystemRoleEnum;
-use ZnBundle\Messenger\Rpc\Controllers\MessageController;
 use ZnBundle\Messenger\Domain\Enums\Rbac\MessengerMessagePermissionEnum;
+use ZnBundle\Messenger\Rpc\Controllers\MessageController;
 
 return [
     [
