@@ -140,6 +140,21 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
 
         foreach ($chatEntity->getMembers() as $memberEntity) {
 
+//            $roles = $memberEntity->getUser()->getRoles();
+//            if (in_array('ROLE_BOT', $roles)) {
+            if(1 == 2) {
+                if($messageEntity->getAuthorId() != $memberEntity->getUserId()) {
+                    $this->sendMessageToBot($memberEntity->getUser(), $messageEntity);
+                }
+            } else {
+                $flowEntity = new FlowEntity();
+                $flowEntity->setChatId($chatEntity->getId());
+                $flowEntity->setMessageId($messageEntity->getId());
+                $flowEntity->setUserId($memberEntity->getUserId());
+                $this->flowRepository->create($flowEntity);
+            }
+
+
             $isMe = $memberEntity->getUserId() == $this->auth->getIdentity()->getId();
             $event = new SocketEventEntity;
             $event->setUserId($memberEntity->getUserId());
@@ -150,20 +165,7 @@ class MessageService extends BaseCrudService implements MessageServiceInterface
                 'chatId' => $memberEntity->getChatId(),
             ]);
             $this->socketDaemon->sendMessageToTcp($event);
-            
-//            $roles = $memberEntity->getUser()->getRoles();
-//            if (in_array('ROLE_BOT', $roles)) {
-            if(1 == 2) {
-                if($messageEntity->getAuthorId() != $memberEntity->getUserId()) {
-                    $this->sendMessageToBot($memberEntity->getUser(), $messageEntity);
-                }
-            } else {
-                $flowEntity = new FlowEntity;
-                $flowEntity->setChatId($chatEntity->getId());
-                $flowEntity->setMessageId($messageEntity->getId());
-                $flowEntity->setUserId($memberEntity->getUserId());
-                $this->flowRepository->create($flowEntity);
-            }
+
         }
     }
 
